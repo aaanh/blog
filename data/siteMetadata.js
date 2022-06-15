@@ -5,7 +5,7 @@ const siteMetadata = {
   description: 'A blog about MLaaS that complements my research.',
   language: 'en-us',
   theme: 'system', // system, dark or light
-  siteUrl: 'https://mlaas.aaanh.com',
+  siteUrl: 'https://doitunicorn.dev',
   siteRepo: '',
   siteLogo: '',
   image: '',
