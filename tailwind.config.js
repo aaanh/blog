@@ -25,7 +25,7 @@ module.exports = {
         14: '3.5rem',
       },
       fontFamily: {
-        sans: ['InterVariable', ...defaultTheme.fontFamily.sans],
+        sans: ['Fira Sans', ...defaultTheme.fontFamily.sans],
       },
       colors: {
         primary: colors.teal,
@@ -70,6 +70,7 @@ module.exports = {
               paddingTop: '2px',
               paddingBottom: '2px',
               borderRadius: '0.25rem',
+              fontFamily: 'Fira Code',
             },
             'code::before': {
               content: 'none',
