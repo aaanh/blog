@@ -2,7 +2,7 @@ const siteMetadata = {
   title: `Anh's MLaaS Journey`,
   author: 'Anh Hoang Nguyen',
   headerTitle: `Anh's MLaaS Journey`,
-  description: 'A blog about MLaaS that complements my research.',
+  description: 'A blog about machien learning that complements my research, acting ',
   language: 'en-us',
   theme: 'system', // system, dark or light
   siteUrl: 'https://doitunicorn.dev',
