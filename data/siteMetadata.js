@@ -1,11 +1,12 @@
 const siteMetadata = {
-  title: `Anh's MLaaS Journey`,
+  title: `Anh's ML & DevOps Journey`,
   author: 'Anh Hoang Nguyen',
-  headerTitle: `Anh's MLaaS Journey`,
-  description: 'A blog about machien learning that complements my research, acting ',
+  headerTitle: `Anh's MLaaS & DevOps Journey`,
+  description:
+    'A blog about machine learning and operations that complements my professional development.',
   language: 'en-us',
   theme: 'system', // system, dark or light
-  siteUrl: 'https://doitunicorn.dev',
+  siteUrl: 'https://ml.aaanh.com',
   siteRepo: '',
   siteLogo: '',
   image: '',
