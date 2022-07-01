@@ -9,6 +9,8 @@ linkedin: https://www.linkedin.com/in/aaanh
 github: https://github.com/aaanh
 ---
 
+[Visit my homepage 🏠](https://aaanh.com)
+
 Anh is a _very_ junior Software Developer in DevOps with a big passion for his crafts. But, he has received positive recognitions from his colleagues and supervisors as a highly skilled developer despite his still-growing experience in the field.
 
 Anh steadily yearns to achieve professional maturity in DevOps, software development cycle, systems design and architecture, and site reliability engineering through continuous learning and continuous experimenting (CL/CE pipeline 😂). He frequently builds projects that utilize SotA and enterprise-grade frameworks to hone his skills.
