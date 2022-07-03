@@ -28,13 +28,20 @@ module.exports = {
         sans: ['Fira Sans', ...defaultTheme.fontFamily.sans],
       },
       colors: {
-        primary: colors.teal,
+        primary: colors.emerald,
         gray: colors.neutral,
       },
       typography: (theme) => ({
         DEFAULT: {
           css: {
             color: theme('colors.gray.700'),
+            kbd: {
+              backgroundColor: theme('colors.neutral.800'),
+              color: theme('colors.blue.500'),
+              paddingLeft: '8px',
+              paddingRight: '8px',
+              borderRadius: theme('borderRadius.lg'),
+            },
             a: {
               color: theme('colors.primary.500'),
               '&:hover': {
