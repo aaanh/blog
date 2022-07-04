@@ -7,10 +7,10 @@ const siteMetadata = {
   language: 'en-us',
   theme: 'system', // system, dark or light
   siteUrl: 'https://ml.aaanh.com',
-  siteRepo: '',
+  siteRepo: 'https://github.com/aaanh/ml',
   siteLogo: '',
   image: '',
-  socialBanner: '/static/images/twitter-card.png',
+  socialBanner: '/static/images/twitter-card.jfif',
   email: 'iam@hoanganh.dev',
   github: 'https://github.com/aaanh',
   twitter: 'https://twitter.com/yeetusmagus',
