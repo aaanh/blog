@@ -1,6 +1,6 @@
 ---
 title: 'Bulding Towards a Taxonomy of MLaaS'
-date: '2022-06-30'
+date: '2022-07-04'
 tags: ['mlaas', 'mlops', 'exploratory', 'sca', 'soa', 'research']
 draft: false
 summary: 'There is a scarcity in terms of papers 😣 so I have to get creative 💡'
@@ -16,7 +16,32 @@ summary: 'There is a scarcity in terms of papers 😣 so I have to get creative 
 
 ### Service Component Architecture
 
+- According to the [OASIS Open Composite Services Architecture](http://www.oasis-opencsa.org), SCA comprises 3 attributes(?)/specifications(?):
+  - Components
+  - Composites
+  - Services
+
+The components implement its business function; the composites assemble multiple compnents together to create business solutions; and the services create an interface for the user with the component and composite functions.
+
+So, we can apply such concept to reach an understanding that any MLaaS is built upon many functional components, be them data-related or training task-related. The user can pick and choose any or all the functional components to achieve their goals via a unified interface, e.g. a web console.
+
+Building further on this concept, providers can target different market segments and technical levels while also easily maintain the contractual service level agreements (SLA) and define key service level objectives (SLO). This homing-in is achieved through the modularity and scalability of the service product.
+
 ### Attributes of a MLaaS
+
+Machine Learning as a Service (MLaaS) from a high level perspective is very much similar to Platform as a Service (PaaS). It is evident by the following observabile-at-a-glance features:
+
+- Is a cloud-based service
+- Accessible through web-based (RESTful) UI or API calls from a CLI tool
+- Scalable based on the workload
+  - Compute resources
+  - Database size
+- Data security, privacy provisions
+- High availability and fault tolerant
+- Automation-friendly, which is crucial for MLOps
+- Offering flexible pricing models
+
+Now that we lay the foundation for MLaaS roughly can be. One might pose the question, well then, how do we differentiate MLaaS from other types of services? We might want to consider viewing it as being encapsulated by the PaaS and offering more specialized tools and functions that non-ML platforms. Or MLaaS is at the same layer/level of a PaaS and the sole job of MLaaS is its namesakes. Maybe we can consider the types of models that a service provide or the availability of an ML model itself.
 
 ## Putting the Blocks Together
 
