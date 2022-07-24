@@ -8,8 +8,8 @@ const siteMetadata = {
   theme: 'system', // system, dark or light
   siteUrl: 'https://ml.aaanh.com',
   siteRepo: 'https://github.com/aaanh/ml',
-  siteLogo: '',
-  image: '',
+  siteLogo: '/static/favicon/favicon.png',
+  image: '/static/favicon/favicon.png',
   socialBanner: '/static/images/twitter-card.jfif',
   email: 'iam@hoanganh.dev',
   github: 'https://github.com/aaanh',
