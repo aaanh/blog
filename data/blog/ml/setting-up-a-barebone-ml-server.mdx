@@ -11,12 +11,12 @@ images: ['/static/images/ml-3-server.png']
 
 Back in July 2, after a bi-weekly report on my research progress to the group, I headed to eBay to buy a dedicated GPU for the machine learning tasks that I am performing. The reason, to quell my predictable buyer's remorse, was to have a separate accelerator card from my workstation that runs on my homelab server instead. This card would need to have a (more) massive physical memory than the measly 8GB that my GTX 1080 has and quite a lot cheaper to actually justify the purchase.
 
-After digging around for few hours, I stumbled upon the NVidia Tesla M40 GPU. It is a data-center class GPU based on the **M**axwell architecture. 
+After digging around for few hours, I stumbled upon the NVidia Tesla M40 GPU. It is a data-center class GPU based on the **M**axwell architecture.
 
 Here are the specifications:
 
 | Attribute             | Value                        |
-|-----------------------|------------------------------|
+| --------------------- | ---------------------------- |
 | GPU Architecture      | NVIDIA Maxwell               |
 | CUDA Cores            | 3072                         |
 | Single-Precision Perf | 7 TFlops w/ NVIDIA GPU Boost |
@@ -27,10 +27,11 @@ Here are the specifications:
 | Max Power Consumption | 250 W                        |
 | Cooling               | Passive                      |
 
-While it is a 7-years-old GPU, considering the price of `US$179` and three-times the GPU memory of my GTX 1080, I was quite sold on the idea of getting it. The very significant outcome is that I would be able to train on larger batch sizes and perform more aggregious feature engineering tasks.
+While it is a 7-years-old GPU, considering the price of `US$179` and three-times the GPU memory of my GTX 1080, I was quite sold on the idea of getting it. The very significant outcome is that I would be able to train on larger batch sizes and perform more aggressive feature engineering tasks.
 
-# The Delivery
+# The Delivery (rant, skip ahead)
 
+<details>
 After 2 weeks of waiting, I was finally notified of a delivery date. So, on that day, I waited. But the delivery was a no-show and it was re-scheduled for the next business day, which was the following Monday. But whoop-dee-doo, on Saturday, an e-mail came in saying that the package was delivered already. With signature. At 11:30 PM. No cap. Thanks, Intelcom.
 
 I smelled an absolute dogshit stench combined with fermented fishiness that it was utter horseshit. First, it came from the fact that I had never provided any signature for any delivery. Second, there was no delivery attempt, no phone calls, no SMS. But I checked the vicinity of the house anyway just to be sure. To no one's surprise, it wasn't there. I checked the tracking on the website and it still said delivered. WTF?
@@ -38,6 +39,8 @@ I smelled an absolute dogshit stench combined with fermented fishiness that it w
 The next morning, I called Intelcom's customer support. It was not easy finding the customer support number either, because there was (and I guarantee still is) nothing listed on the official website. What a fucking shady business that operates on anti-consumerism. Anyway, I waited 20 minutes on a line until I finally got transferred to an agent. The problem seemed to be an incorrect shipping address on the system `?? 🙂 ??`. Whatever I'd just provide again the correct address and it'd be good (right?) and the delivery was still scheduled for Monday. Came Monday, an e-mail came around 4:00 PM saying that the GPU would be delivered from 5:00 PM to 10:00 PM. Said time period came, and I got a call from the delivery person asking for the correct address. What the fuck? Didn't I just correct it on Sunday? Was I sleep-dialing customer support in my dream? Okay fine, I gave the person the correct address and the motherfucker literally had the gall to say that it was too far away (30 minutes) from his location so he didn't want to deliver (????). I'm sorry, but ain't the delivery time between 5 to 10? It was fucking 5:30 PM at that time.
 
 To be abridged and shortened, I dealt with customer support for 2 additional times on the phone, each lasting around 30-40 minutes just to harass them to do the right thing or else I would report their ass to kingdom come with Quebec Consumer Protection Office and drag their faces through the mud on Better Business Bureau. And it motherfucking worked. I finally got the GPU on Thursday.
+
+</details>
 
 # The Installation
 
