@@ -1,9 +1,9 @@
 const siteMetadata = {
-  title: `Anh's ML & DevOps Journey`,
+  title: `Anh's Dev Journey`,
   author: 'Anh Hoang Nguyen',
-  headerTitle: `Anh's MLaaS & DevOps Journey`,
+  headerTitle: `Anh's Dev Journey`,
   description:
-    'A blog about machine learning and operations that complements my professional development.',
+    'A blog about all dev techs that complements my professional development.',
   language: 'en-us',
   theme: 'system', // system, dark or light
   siteUrl: 'https://ml.aaanh.com',
@@ -71,9 +71,9 @@ const siteMetadata = {
       label: '', // label (optional): Comment 💬
       // theme example: github-light, github-dark, preferred-color-scheme
       // github-dark-orange, icy-dark, dark-blue, photon-dark, boxy-light
-      theme: '',
+      theme: 'github-light',
       // theme when dark mode
-      darkTheme: '',
+      darkTheme: 'icy-dark',
     },
     disqusConfig: {
       // https://help.disqus.com/en/articles/1717111-what-s-a-shortname
