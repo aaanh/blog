@@ -25,7 +25,7 @@ module.exports = {
         14: '3.5rem',
       },
       fontFamily: {
-        sans: ['Fira Sans', ...defaultTheme.fontFamily.sans],
+        sans: ['Inter', ...defaultTheme.fontFamily.sans],
       },
       colors: {
         primary: colors.emerald,
@@ -77,7 +77,7 @@ module.exports = {
               paddingTop: '2px',
               paddingBottom: '2px',
               borderRadius: '0.25rem',
-              fontFamily: 'Fira Code',
+              fontFmaily: 'monospace',
             },
             'code::before': {
               content: 'none',

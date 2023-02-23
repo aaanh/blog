@@ -6,10 +6,11 @@ import { getAllFilesFrontMatter } from '@/lib/mdx'
 import formatDate from '@/lib/utils/formatDate'
 
 import NewsletterForm from '@/components/NewsletterForm'
+import { GetStaticProps } from 'next'
 
 const MAX_DISPLAY = 6
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps = async () => {
   const posts = await getAllFilesFrontMatter('blog')
 
   return { props: { posts } }
