@@ -1,4 +1,4 @@
-# Anh's ML and DevOps Technology Blog
+# Anh's ML, DevOps, IT, Cloud, and Whatever Technology Blog
 
 > ℹ️ Attribution: Based on template <https://github.com/timlrx/tailwind-nextjs-starter-blog>
 
