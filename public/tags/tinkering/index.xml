@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>tinkering on Anh&#39;s Tech Blog</title>
+    <link>https://blog.aaanh.com/tags/tinkering/</link>
+    <description>Recent content in tinkering on Anh&#39;s Tech Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 23 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.aaanh.com/tags/tinkering/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Setting Up a Barebone Dedicated ML Server</title>
+      <link>https://blog.aaanh.com/posts/setting-up-a-barebone-ml-server/</link>
+      <pubDate>Sat, 23 Jul 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.aaanh.com/posts/setting-up-a-barebone-ml-server/</guid>
+      <description>I sure hope that I will make-even with this investment 💸</description>
+      <content>&lt;h1 id=&#34;the-purchase&#34;&gt;The Purchase&lt;/h1&gt;
+&lt;p&gt;Back in July 2, after a bi-weekly report on my research progress to the group, I headed to eBay to buy a dedicated GPU for the machine learning tasks that I am performing. The reason, to quell my predictable buyer&amp;rsquo;s remorse, was to have a separate accelerator card from my workstation that runs on my homelab server instead. This card would need to have a (more) massive physical memory than the measly 8GB that my GTX 1080 has and quite a lot cheaper to actually justify the purchase.&lt;/p&gt;
+&lt;p&gt;After digging around for few hours, I stumbled upon the NVidia Tesla M40 GPU. It is a data-center class GPU based on the &lt;strong&gt;M&lt;/strong&gt;axwell architecture.&lt;/p&gt;
+&lt;p&gt;Here are the specifications:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Attribute&lt;/th&gt;
+&lt;th&gt;Value&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;GPU Architecture&lt;/td&gt;
+&lt;td&gt;NVIDIA Maxwell&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;CUDA Cores&lt;/td&gt;
+&lt;td&gt;3072&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Single-Precision Perf&lt;/td&gt;
+&lt;td&gt;7 TFlops w/ NVIDIA GPU Boost&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Double-Precision Perf&lt;/td&gt;
+&lt;td&gt;0.2 TFlops&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;GPU Memory&lt;/td&gt;
+&lt;td&gt;24 GB GDDR5&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Memory Bandwidth&lt;/td&gt;
+&lt;td&gt;288 GB/s&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Interface&lt;/td&gt;
+&lt;td&gt;PCIe 3.0 x16&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Max Power Consumption&lt;/td&gt;
+&lt;td&gt;250 W&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Cooling&lt;/td&gt;
+&lt;td&gt;Passive&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;While it is a 7-years-old GPU, considering the price of &lt;code&gt;US$179&lt;/code&gt; and three-times the GPU memory of my GTX 1080, I was quite sold on the idea of getting it. The very significant outcome is that I would be able to train on larger batch sizes and perform more aggressive feature engineering tasks.&lt;/p&gt;
+&lt;h1 id=&#34;the-delivery-rant-skip-ahead&#34;&gt;The Delivery (rant, skip ahead)&lt;/h1&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;I smelled an absolute dogshit stench combined with fermented fishiness that it was utter horseshit. First, it came from the fact that I had never provided any signature for any delivery. Second, there was no delivery attempt, no phone calls, no SMS. But I checked the vicinity of the house anyway just to be sure. To no one&amp;rsquo;s surprise, it wasn&amp;rsquo;t there. I checked the tracking on the website and it still said delivered. WTF?&lt;/p&gt;
+&lt;p&gt;The next morning, I called Intelcom&amp;rsquo;s customer support. It was not easy finding the customer support number either, because there was (and I guarantee still is) nothing listed on the official website. What a fucking shady business that operates on anti-consumerism. Anyway, I waited 20 minutes on a line until I finally got transferred to an agent. The problem seemed to be an incorrect shipping address on the system &lt;code&gt;?? 🙂 ??&lt;/code&gt;. Whatever I&amp;rsquo;d just provide again the correct address and it&amp;rsquo;d be good (right?) and the delivery was still scheduled for Monday. Came Monday, an e-mail came around 4:00 PM saying that the GPU would be delivered from 5:00 PM to 10:00 PM. Said time period came, and I got a call from the delivery person asking for the correct address. What the fuck? Didn&amp;rsquo;t I just correct it on Sunday? Was I sleep-dialing customer support in my dream? Okay fine, I gave the person the correct address and the motherfucker literally had the gall to say that it was too far away (30 minutes) from his location so he didn&amp;rsquo;t want to deliver (????). I&amp;rsquo;m sorry, but ain&amp;rsquo;t the delivery time between 5 to 10? It was fucking 5:30 PM at that time.&lt;/p&gt;
+&lt;p&gt;To be abridged and shortened, I dealt with customer support for 2 additional times on the phone, each lasting around 30-40 minutes just to harass them to do the right thing or else I would report their ass to kingdom come with Quebec Consumer Protection Office and drag their faces through the mud on Better Business Bureau. And it motherfucking worked. I finally got the GPU on Thursday.&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;h1 id=&#34;the-installation&#34;&gt;The Installation&lt;/h1&gt;
+&lt;p&gt;After installing the card in my server, I realized that the PSU didn&amp;rsquo;t have enough power (450 W) to run the whole system with the M40 GPU. So, I ran to the nearest Canada Computers and picked up a 650 W PSU. I had to saw off the second CPU power connector clip in order to fit the card&amp;rsquo;s power slot. And&amp;hellip; It still didn&amp;rsquo;t work.&lt;/p&gt;
+&lt;p&gt;Perusing the great interweb for an hour or so, I came across a YouTube video that said I would need to enable something-something more than 4-GB decoding(?) in BIOS for it to work. The main problem was I had been running the server headlessly. That is, only through SSH and no user I/O whatsoever.&lt;/p&gt;
+&lt;p&gt;To solve this, I devised 2 options:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Buy a CPU with iGPU (my current one doesn&amp;rsquo;t have one)&lt;/li&gt;
+&lt;li&gt;Buy a cheap-ass GPU&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;For option, the most sensible thing was to get a Ryzen 3200G (I am running on an AMD motherboard). But it costs around 300 dollary-doos. On the other hand, a cheap-ass GPU would only cost me 99 Canadian rupees in total, so I went for the latter and bought a Radeon card off Amazon.&lt;/p&gt;
+&lt;p&gt;Card arrived. BIOS configured. System booted to OS. And working fine.&lt;/p&gt;
+&lt;h1 id=&#34;the-nvidia-installation&#34;&gt;The NVIDIA Installation&lt;/h1&gt;
+&lt;p&gt;The card would totally not work if there ain&amp;rsquo;t any drivers, especially for machine learning that utilizes those sweet CUDA cores.&lt;/p&gt;
+&lt;p&gt;I first disabled the default Nouveau driver:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo su
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;touch /etc/modprobe.d/blacklist-nouveau.conf
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;echo -e &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;blacklist nouveau\noptions nouveau modeset=0&amp;#34;&lt;/span&gt; &amp;gt;&amp;gt; /etc/modprobe.d/blacklist-nouveau.conf
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;update-initramfs -u
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;reboot
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Then, I installed the CUDA Toolkit using the Runfile method for easy clap:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;wget https://developer.download.nvidia.com/compute/cuda/11.7.0/local_installers/cuda_11.7.0_515.43.04_linux.run
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo sh cuda_11.7.0_515.43.04_linux.run
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Then, I installed &lt;code&gt;anaconda&lt;/code&gt; (for demo only, please refer to Anaconda official website for latest downloads):&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;wget https://repo.anaconda.com/archive/Anaconda3-2022.05-Linux-x86_64.sh &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; bash Anaconda3-2022.05-Linux-x86_64.sh
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;After that, I created a new environment, installed Jupyter Notebook and dependencies. And finally, I ran the first ever training (pictured below). I made sure to monitor the GPU usage through &lt;code&gt;nvidia-smi&lt;/code&gt; to verify if it was utilizing the GPU, not the CPU.&lt;/p&gt;
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;h1 id=&#34;afterwords&#34;&gt;Afterwords&lt;/h1&gt;
+&lt;p&gt;Looking at the whole process, I spent around &lt;code&gt;CA$350&lt;/code&gt; in total for the GPU + compatible components + other efforts. Comparing that one-time price tag (electricity excluded) to Google Colab (&lt;code&gt;CA$15&lt;/code&gt; a month if I remember correctly), I should be able to breakeven in 2 years. However, it should be taken into considerations that Google Colab has timeouts and the GPU instance provided is not guaranteed, so on a good day, you might get A100 or V100, but on a bad day, you would get the whimpy K80. Adding more to the variance, you are also dependent on the storage space of your Google Drive to store models and data, which adds 5 - 15 dollars a month for a usable amount of storage. Thus, bringing down the breakeven period to simply less than 1 year of continuous usage.&lt;/p&gt;
+&lt;p&gt;In the near future, I would want to experiment with distributed machine learning setup between the server and my workstation to see if it has any larger potential with performance gain.&lt;/p&gt;
+&lt;p&gt;Subjectively, I think the effort was worthwhile. Though, it would have been way better if it was not for Intelcom. I&amp;rsquo;m calling that shitty company out. Keep that in your mind: Intelcom is bad.&lt;/p&gt;
+</content>
+    </item>
+    
+    <item>
+      <title>When you can be a 2D Anime Waifu Oshi</title>
+      <link>https://blog.aaanh.com/posts/why-be-a-king/</link>
+      <pubDate>Fri, 08 Jul 2022 12:00:00 +0000</pubDate>
+      
+      <guid>https://blog.aaanh.com/posts/why-be-a-king/</guid>
+      <description>Democratizing virtual spaces technologies.</description>
+      <content>&lt;p&gt;I did the thing. Armed with my iPad (and iPhone) and a PC desktop, along with a general knowledge of how computer works.&lt;/p&gt;
+&lt;p&gt;The setup does not really require an Apple device but it works best because of Apple AR Kit.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.facebook.com/100004982768603/videos/820917322223296/&#34;&gt;Watch the test recording here&lt;/a&gt;&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;I just discovered Excalidraw in May and I could not stop using it. It&amp;rsquo;s an addiction. So here&amp;rsquo;s a diagram of the &lt;em&gt;pipeline&lt;/em&gt;.&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;Thanks.&lt;/p&gt;
+</content>
+    </item>
+    
+    <item>
+      <title>Almost Had to RMA My Spanking New MacBook</title>
+      <link>https://blog.aaanh.com/posts/almost-had-to-rma-my-macbook/</link>
+      <pubDate>Sun, 10 Apr 2022 02:30:00 +0000</pubDate>
+      
+      <guid>https://blog.aaanh.com/posts/almost-had-to-rma-my-macbook/</guid>
+      <description>But I managed to recover everyting in the end 😂</description>
+      <content>&lt;p&gt;So&amp;hellip; the curiosity finally killed the cat. Recently, I installed Asahi Linux on my M1 Pro Macbook — my mission critical daily carry system without a flipping care in the world. It worked surprisingly well, no problems whatsoever, but I found it to be not as useful as I would have imagined. The problem didn&amp;rsquo;t lie with the engineering or stability of the Asahi Linux project, but rather it lied with the general support for Linux systems on ARM chip, especially for Arch-based distributions. Everything was fine but because of the lack of feature support, 5 hours ago, I decided to nuke the dual boot partition and reclaim the disk space, then reinstall macOS altogether because the OS was running a bit slow and hotter than usual.&lt;/p&gt;
+&lt;p&gt;Without searching online beforehand, I did a full wipe of whatever partitions there were on the SSD. And that right there was the gateway drug down the rabbit hole of whatever the heck Apple was doing to configure their filesystem and disk management, with the sparkling cameos of useless answers on the Apple discussion forums by wannabe gurus and quantum pseudo tech literate self-acclaimed know-it-alls.&lt;/p&gt;
+&lt;p&gt;The internal SSD of my MacBook before I solved the shenanigan, caused by blindly nuking the partitions is as followed: - disk0: 500GB — this is the physical disk total capacity - disk0s1: 500MB — GUID Partition Table - Free Space: 4xxGB — the weird-ass void - disk0s2: 2GB — the recovery partition&lt;/p&gt;
+&lt;p&gt;Initially, I deleted both the macOS (~400GB) and Linux partitions (~100GB) with the command from the Terminal in Recovery boot:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;diskutil eraseVolume free free disk0s#
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;I came across this erase command from an Asahi Linux stackoverflow post in which the OP also wanted to nuke the disk like myself. However, that was the end of the story on the post without the &amp;ldquo;what to do after you nuke&amp;rdquo; instructions. Well, I thought to myself, if there&amp;rsquo;s no sequel to this post, then the subsequent process should be easy enough. Aaaand, I was dead wrong.&lt;/p&gt;
+&lt;p&gt;The yeet of the SSD partitions leave behind the void which just could not be detected by the MacOS installer nor the graphical tool (diskutil). To make it detectable again, I had to do the most illogical thing which is expanding disk0s1 which was apparently the &amp;ldquo;GUID Partition Table&amp;rdquo;. It does not make sense because normally this partition just stores the partition table, not the whole usable partition space. But, before I came across this solution, I thought to myself, &amp;ldquo;what the heck, last resort, last ditch effort before I need to send in the laptop for RMA anyway.&amp;rdquo; Turns out, Apple&amp;rsquo;s ways of performing seemingly regular processes are &lt;em&gt;built different&lt;/em&gt;, I guess.&lt;/p&gt;
+&lt;p&gt;A note before I end this blog, I have already tried wiping ALL partitions but they are all locked by kernel (process 0). Heck, I even tried killing the kernel 🤪 process that&amp;rsquo;s using the partitions. In my defense, I was booting from a USB so killing the kernel on the internal SSD is justifiable course of action, to be honest.&lt;/p&gt;
+&lt;p&gt;So after expanding that GUID partition, the installation can be continued normally without any further hiccup. I think I&amp;rsquo;ll stray away from experimental software for now 😅 as this problem took a huge chunk of my time for troubleshooting&amp;hellip;&lt;/p&gt;
+</content>
+    </item>
+    
+  </channel>
+</rss>

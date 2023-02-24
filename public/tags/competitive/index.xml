@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>competitive on Anh&#39;s Tech Blog</title>
+    <link>https://blog.aaanh.com/tags/competitive/</link>
+    <description>Recent content in competitive on Anh&#39;s Tech Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 24 Feb 2022 19:00:00 +0000</lastBuildDate><atom:link href="https://blog.aaanh.com/tags/competitive/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>First Code Competition</title>
+      <link>https://blog.aaanh.com/posts/productivity-and-operations/</link>
+      <pubDate>Thu, 24 Feb 2022 19:00:00 +0000</pubDate>
+      
+      <guid>https://blog.aaanh.com/posts/productivity-and-operations/</guid>
+      <description>This post is going to be written in the style of an incident postmortem. :^)
+Overview Those who are in the dev scene probably know, to some extents, what competitive programming is. It is basically Leet Code on the highest purity crack. Each problem presented to the participants during the competition can said to be comprised of multiple Leet Code problems in the topics of algorithm, data structure, optimization, dynamic programming, so on and so forth.</description>
+      <content>&lt;blockquote&gt;
+&lt;p&gt;This post is going to be written in the style of an incident postmortem. &lt;code&gt;:^)&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;overview&#34;&gt;Overview&lt;/h2&gt;
+&lt;p&gt;Those who are in the dev scene probably know, to some extents, what competitive programming is. It is basically Leet Code on the highest purity crack. Each problem presented to the participants during the competition can said to be comprised of multiple Leet Code problems in the topics of algorithm, data structure, optimization, dynamic programming, so on and so forth.&lt;/p&gt;
+&lt;p&gt;Today, it was my first time participating in such a competition, virtually. It was Hash Code and organized by Google. I am proud to say that our team of three did not complete the challenge. But it was never about the end result, it always has been the friends we made along the way &lt;code&gt;:^)&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;]The qualifier round is truly fitting of being a Google competition. Details of which can be read here &lt;a href=&#34;https://codingcompetitions.withgoogle.com/hashcode&#34;&gt;https://codingcompetitions.withgoogle.com/hashcode&lt;/a&gt;. Not gonna lie, it was &lt;em&gt;really&lt;/em&gt; hard. The competition presents a multi-faceted problem with a lot of aspects the solvers need to account for. And according to the Google engineer who organizes this year&amp;rsquo;s HashCode in the post-round livestream, there is yet to be an optimal solution.&lt;/p&gt;
+&lt;h2 id=&#34;timeline&#34;&gt;Timeline&lt;/h2&gt;
+&lt;p&gt;Back to our team&amp;rsquo;s performance during the qualifier round. Here is our timeline of the event with our progress. Note that all the timestamps are documented on &lt;strong&gt;2022-02-24&lt;/strong&gt; and according to the &lt;strong&gt;EST&lt;/strong&gt; timezone.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;11:45AM&lt;/code&gt; I reserved a conference room for our physical collab space.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;12:00PM&lt;/code&gt; Initial equipment and room setup completed.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;12:30PM&lt;/code&gt; Hash Code 2022 Qualifier round started and I started problem comprehension while waiting for the rest of the team to arrive.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;12:45PM&lt;/code&gt; The team was assembled and we debriefed the problem statement.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;01:30PM&lt;/code&gt; Whiteboarded the data structure and started implementing while figuring out the problem goal.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;02:00PM&lt;/code&gt; Partially completed input parsing code. Tested against example input and realized we overshot the line traversal.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;02:30PM&lt;/code&gt; Completed input parsing code. Tested against all input sizes and types. Test completed without errors.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;02:45PM&lt;/code&gt; Analyzing aspects of the problem: selecting important features, extracting and interpolating metrics, and building decision tree system.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;03:30PM&lt;/code&gt; Analysis still in progress but a rough idea of how we should tackle the scheduling and optimizing was realized.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;03:45PM&lt;/code&gt; Competition ended. We stayed for a bit to further explore edge cases and watched the post-round livestream to understand more of the real-life aspects and metadata of the problem.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;action-items&#34;&gt;Action Items&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;#&lt;/th&gt;
+&lt;th&gt;Action Item&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Status&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;Problem comprehension&lt;/td&gt;
+&lt;td&gt;Holistic&lt;/td&gt;
+&lt;td&gt;Partial&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;Data Structure: OOP&lt;/td&gt;
+&lt;td&gt;Input&lt;/td&gt;
+&lt;td&gt;Done&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;td&gt;Data Parsing&lt;/td&gt;
+&lt;td&gt;Input&lt;/td&gt;
+&lt;td&gt;Done&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;4&lt;/td&gt;
+&lt;td&gt;Optimize selection&lt;/td&gt;
+&lt;td&gt;Logic&lt;/td&gt;
+&lt;td&gt;Partial&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;5&lt;/td&gt;
+&lt;td&gt;Optimize project order&lt;/td&gt;
+&lt;td&gt;Logic&lt;/td&gt;
+&lt;td&gt;Partial&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;6&lt;/td&gt;
+&lt;td&gt;Incorporate skills into optimization&lt;/td&gt;
+&lt;td&gt;Logic&lt;/td&gt;
+&lt;td&gt;Not started&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;analysis&#34;&gt;Analysis&lt;/h2&gt;
+&lt;h3 id=&#34;expectations&#34;&gt;Expectations&lt;/h3&gt;
+&lt;p&gt;Upon reading the problem and estimating the complexity, we expected to at least be able to run the first example and output the first output correctly.&lt;/p&gt;
+&lt;h3 id=&#34;result&#34;&gt;Result&lt;/h3&gt;
+&lt;p&gt;We was not able to meet the expectations. But we managed to develop our ideas for tackling and optimizing the problem. Our tangible result was the developed data structure and input parsing logic.&lt;/p&gt;
+&lt;h3 id=&#34;my-performance&#34;&gt;My performance&lt;/h3&gt;
+&lt;p&gt;The majority of the analysis will be on my own performance as I cannot speak for others.&lt;/p&gt;
+&lt;p&gt;I am the weakest link in the team due to my lesser experience in the Leet Code scene and the competitive programming scene as compared to the other team members. My input to the comprehension progress needs further polishing in terminologies and presentation, as well as the speed at which I can deconstruct and organize various aspects of the coding challenge. The main contribution I made weighed in in terms of writing code and implementing the ideas we had developed so far at the time. Although, on that note, I would still need to improve my coding effiency and debugging skills.&lt;/p&gt;
+&lt;h3 id=&#34;what-i-learned-and-remediations-going-forward&#34;&gt;What I learned and remediations going forward&lt;/h3&gt;
+&lt;p&gt;Experience would really come in handy. This is explicitly apparent when I see the winners&amp;rsquo; names are mostly from past competitions. I would need to solve more algorithmic problems to train myself to be come better at that way of thinking. Along with that process, I would also be able to improve my programming efficiency.&lt;/p&gt;
+</content>
+    </item>
+    
+  </channel>
+</rss>

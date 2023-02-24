@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>game on Anh&#39;s Tech Blog</title>
+    <link>https://blog.aaanh.com/tags/game/</link>
+    <description>Recent content in game on Anh&#39;s Tech Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 03 Jul 2022 04:30:00 +0000</lastBuildDate><atom:link href="https://blog.aaanh.com/tags/game/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Holocure Save File Restore</title>
+      <link>https://blog.aaanh.com/posts/holocure-save-file/</link>
+      <pubDate>Sun, 03 Jul 2022 04:30:00 +0000</pubDate>
+      
+      <guid>https://blog.aaanh.com/posts/holocure-save-file/</guid>
+      <description>Had insomnia last night so I stayed up until dawn playing Holocure</description>
+      <content>&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;h1 id=&#34;background&#34;&gt;Background&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&#34;https://kay-yu.itch.io/holocure&#34;&gt;Holocure&lt;/a&gt; is a fan-made content by the animator &lt;a href=&#34;https://twitter.com/kaynimatic&#34;&gt;Kay Yu&lt;/a&gt; in the form of a survival, roguelike, shoot &#39;em up game. The gameplay mechanics are similar to those of the game &lt;a href=&#34;https://store.steampowered.com/app/1794680/Vampire_Survivors/&#34;&gt;Vampire Survivors&lt;/a&gt;. The game content features &lt;a href=&#34;https://hololive.hololivepro.com/&#34;&gt;Hololive&lt;/a&gt; characters, who are Virtual YouTubers (vtubers), along with their references and signature items.&lt;/p&gt;
+&lt;p&gt;The game target platform is &lt;code&gt;win32&lt;/code&gt;.&lt;/p&gt;
+&lt;h1 id=&#34;problem-statements&#34;&gt;Problem Statements&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;You want to continue your Holocure progress on another Windows machine.&lt;/li&gt;
+&lt;li&gt;You have a backed up save file &lt;code&gt;save.dat&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;You can only download the latest version of Holocure.
+&lt;ul&gt;
+&lt;li&gt;You don&amp;rsquo;t have access to the version of assemblies that generated the &lt;code&gt;save.dat&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;You don&amp;rsquo;t trust scripts and tools on the Interweb, preferring to do it manually.
+&lt;ul&gt;
+&lt;li&gt;You are somewhat competent at more technical computing concepts &amp;amp; operations.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;methodology&#34;&gt;Methodology&lt;/h1&gt;
+&lt;h2 id=&#34;restore-steps&#34;&gt;Restore Steps&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;On your brand spanking new machine&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Generate the initial save folder
+&lt;ol&gt;
+&lt;li&gt;Download the game from official release channel &lt;a href=&#34;https://kay-yu.itch.io/holocure&#34;&gt;https://kay-yu.itch.io/holocure&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Launch the game for the first time.&lt;/li&gt;
+&lt;li&gt;Get to the game main menu.&lt;/li&gt;
+&lt;li&gt;Exit it.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;Get content of new &lt;code&gt;save.dat&lt;/code&gt; file. All steps in this section are performed on the new save directory that the game generates by default.
+&lt;ol&gt;
+&lt;li&gt;&lt;!-- raw HTML omitted --&gt;Win&lt;!-- raw HTML omitted --&gt; + &lt;!-- raw HTML omitted --&gt;R&lt;!-- raw HTML omitted --&gt;{&amp;rsquo; &amp;lsquo;}&lt;/li&gt;
+&lt;li&gt;Paste this path in and hit &lt;!-- raw HTML omitted --&gt;Enter&lt;!-- raw HTML omitted --&gt;:
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;%USERPROFILE%\AppData\Local\Holocure
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;⚠ Make a backup immediately ⚠
+&lt;ul&gt;
+&lt;li&gt;Right-click &lt;code&gt;save.dat&lt;/code&gt; &amp;gt; Copy &amp;gt; &lt;!-- raw HTML omitted --&gt;CTRL&lt;!-- raw HTML omitted --&gt; + &lt;!-- raw HTML omitted --&gt;V&lt;!-- raw HTML omitted --&gt;&lt;/li&gt;
+&lt;li&gt;Name the copy &lt;code&gt;save.dat.bak&lt;/code&gt; or something&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Open &lt;code&gt;save.dat&lt;/code&gt; file there with a text editor
+&lt;ul&gt;
+&lt;li&gt;save.dat: ASCII text, with very long lines (1560), with no line terminators&lt;/li&gt;
+&lt;li&gt;The file is encoded in base64&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Copy all the content and paste it into &lt;a href=&#34;https://www.base64decode.org/&#34;&gt;a decoder like base64&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;Or use &lt;code&gt;base64&lt;/code&gt; CLI in WSL &lt;code&gt;base64 -d save.dat &amp;gt;&amp;gt; save.decoded.&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Sample decoded file:
+&lt;ul&gt;
+&lt;li&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;You are probably seeing a string like this:
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;y&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;ݴouy&lt;/span&gt;{&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;F{sm&lt;/span&gt;}&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;^svi&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;8&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;s&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;6&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;}&lt;/span&gt;{&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;Vk{&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;food&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;1.0&lt;/span&gt;, &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;specUnlock&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;1.0&lt;/span&gt;, &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;haste&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;2.0&lt;/span&gt;, &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;holoCoins&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;-136.0&lt;/span&gt;, &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;unlockedItems&amp;#34;&lt;/span&gt;: [ &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;BodyPillow&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;FullMeal&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;PikiPikiPiman&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;SuccubusHorn&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Headphones&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;UberSheep&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;........&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;Look for &lt;code&gt;randomMoneyKey&lt;/code&gt; attribute and write down its the numeric value
+&lt;ul&gt;
+&lt;li&gt;Example: &lt;code&gt;&amp;quot;randomMoneyKey&amp;quot;: 420.0&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;This is a randomly generated &amp;ldquo;key&amp;rdquo; that acts as an anti-cheat for the money you have.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Pay attention to the first non-sensical word in double quotes you can see
+&lt;ul&gt;
+&lt;li&gt;In this case, &lt;code&gt;&amp;quot;food&amp;quot;&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Trace backwards to the closest open curly bracket &lt;code&gt;{&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Copy the portion from and including that bracket till the end and including the weird box character.&lt;/li&gt;
+&lt;li&gt;Paste into &lt;a href=&#34;https://www.base64encode.org/&#34;&gt;the tool&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Re-encode the string segment into base64
+&lt;ul&gt;
+&lt;li&gt;You get something like &lt;code&gt;eyAiZm9vZCI6........&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;This gives you the starting point of the actual saved progress of the game.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;So, back in the &lt;code&gt;save.dat&lt;/code&gt;, find where the segment you got from the previous step is and yeet that.&lt;/li&gt;
+&lt;li&gt;Save the modified &lt;code&gt;save.dat&lt;/code&gt; file.&lt;/li&gt;
+&lt;li&gt;This step concludes the preparation of the local save directory.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;Prepping the backed up &lt;code&gt;save.dat&lt;/code&gt; file containing your progress
+&lt;ol&gt;
+&lt;li&gt;Download or transfer the file to your new machine.&lt;/li&gt;
+&lt;li&gt;For concision, this guide assumes you paste the &lt;code&gt;save.dat&lt;/code&gt; file on your &lt;code&gt;%USERPROFILE%\Desktop&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Open the file with a text editor&lt;/li&gt;
+&lt;li&gt;Decode it&lt;/li&gt;
+&lt;li&gt;Look for the &lt;code&gt;randomMoneyKey&lt;/code&gt; attribute&lt;/li&gt;
+&lt;li&gt;Change its value to the number you got from the default file at &lt;code&gt;%USERPROFILE%\AppData\Local\Holocure\save.dat&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;In this case, &lt;code&gt;420.0&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;With that value change, like the logic you did with the default file
+&lt;ul&gt;
+&lt;li&gt;Find the first non-sensical word in that string&lt;/li&gt;
+&lt;li&gt;Trace backwards to the closest open curly bracket &lt;code&gt;{&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Copy the portion from and including that bracket till the end and including the weird box character.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Paste the copied string to &lt;a href=&#34;https://base64encode.org&#34;&gt;the encoder&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Re-encode it.&lt;/li&gt;
+&lt;li&gt;Copy the re-encoded string.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;Back to the directory &lt;code&gt;%USERPROFILE%\AppData\Local\Holocure\&lt;/code&gt;
+&lt;ol&gt;
+&lt;li&gt;Open the &lt;code&gt;save.dat&lt;/code&gt; file if you have not already.&lt;/li&gt;
+&lt;li&gt;Paste (append) the copied string right after whatever is there, make sure there&amp;rsquo;s no whitespace &lt;!-- raw HTML omitted --&gt;Space&lt;!-- raw HTML omitted --&gt;.&lt;/li&gt;
+&lt;li&gt;Save it.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;Re-open HoloCure&lt;/li&gt;
+&lt;li&gt;Et voila, it is back.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;backup-strategies&#34;&gt;Backup Strategies&lt;/h2&gt;
+&lt;h3 id=&#34;cloud-sync&#34;&gt;Cloud Sync&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;I use Google Drive to automatically back up that specific folder
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;%USERPROFILE%\AppData\Local\Holocure
+&lt;/code&gt;&lt;/pre&gt;Since I have Google Drive desktop installed already on all my computers.&lt;/li&gt;
+&lt;li&gt;But, to be noted that you would only need the &lt;code&gt;save.dat&lt;/code&gt; file to properly restore your progress.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;shadow-copy&#34;&gt;Shadow Copy&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;You can make a shadow copy of the folder.&lt;/li&gt;
+&lt;li&gt;Won&amp;rsquo;t go into details, there are guides out there on the internet.&lt;/li&gt;
+&lt;li&gt;Copy that blob to your new machine.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;practice-3-2-1&#34;&gt;Practice 3-2-1&lt;/h3&gt;
+&lt;p&gt;High resilient data recovery strategy in the event of any type of disaster, except Earth&amp;rsquo;s complete destruction.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;3 daily backups.&lt;/li&gt;
+&lt;li&gt;2 on-site (different machine/server, on a NAS, on a cold storage medium like tape, on a USB key).&lt;/li&gt;
+&lt;li&gt;1 off-site (preferably different region).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;backstory&#34;&gt;Backstory&lt;/h1&gt;
+&lt;p&gt;Because I wanted to continue my Holocure progress on my laptop while lying on my bed, I needed to transfer the progress from my desktop tower. That&amp;rsquo;s it, lol 😂.&lt;/p&gt;
+&lt;h1 id=&#34;contact-assistance-request-bug-report&#34;&gt;Contact, assistance request, bug report&lt;/h1&gt;
+&lt;p&gt;ℹ Please submit an issue at &lt;a href=&#34;https://github.com/aaanh/ml/issues&#34;&gt;https://github.com/aaanh/ml/issues&lt;/a&gt;.&lt;/p&gt;
+</content>
+    </item>
+    
+  </channel>
+</rss>

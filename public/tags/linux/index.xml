@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>linux on Anh&#39;s Tech Blog</title>
+    <link>https://blog.aaanh.com/tags/linux/</link>
+    <description>Recent content in linux on Anh&#39;s Tech Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 22 Feb 2023 20:30:00 +0000</lastBuildDate><atom:link href="https://blog.aaanh.com/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Switch All My Linux Systems to RHEL from Ubuntu</title>
+      <link>https://blog.aaanh.com/posts/from-ubuntu-to-rhel/</link>
+      <pubDate>Wed, 22 Feb 2023 20:30:00 +0000</pubDate>
+      
+      <guid>https://blog.aaanh.com/posts/from-ubuntu-to-rhel/</guid>
+      <description>Ubuntu keeps annoying the heck out of me. Or maybe I&amp;rsquo;m getting older.</description>
+      <content></content>
+    </item>
+    
+    <item>
+      <title>Setting Up a Barebone Dedicated ML Server</title>
+      <link>https://blog.aaanh.com/posts/setting-up-a-barebone-ml-server/</link>
+      <pubDate>Sat, 23 Jul 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.aaanh.com/posts/setting-up-a-barebone-ml-server/</guid>
+      <description>I sure hope that I will make-even with this investment 💸</description>
+      <content>&lt;h1 id=&#34;the-purchase&#34;&gt;The Purchase&lt;/h1&gt;
+&lt;p&gt;Back in July 2, after a bi-weekly report on my research progress to the group, I headed to eBay to buy a dedicated GPU for the machine learning tasks that I am performing. The reason, to quell my predictable buyer&amp;rsquo;s remorse, was to have a separate accelerator card from my workstation that runs on my homelab server instead. This card would need to have a (more) massive physical memory than the measly 8GB that my GTX 1080 has and quite a lot cheaper to actually justify the purchase.&lt;/p&gt;
+&lt;p&gt;After digging around for few hours, I stumbled upon the NVidia Tesla M40 GPU. It is a data-center class GPU based on the &lt;strong&gt;M&lt;/strong&gt;axwell architecture.&lt;/p&gt;
+&lt;p&gt;Here are the specifications:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Attribute&lt;/th&gt;
+&lt;th&gt;Value&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;GPU Architecture&lt;/td&gt;
+&lt;td&gt;NVIDIA Maxwell&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;CUDA Cores&lt;/td&gt;
+&lt;td&gt;3072&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Single-Precision Perf&lt;/td&gt;
+&lt;td&gt;7 TFlops w/ NVIDIA GPU Boost&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Double-Precision Perf&lt;/td&gt;
+&lt;td&gt;0.2 TFlops&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;GPU Memory&lt;/td&gt;
+&lt;td&gt;24 GB GDDR5&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Memory Bandwidth&lt;/td&gt;
+&lt;td&gt;288 GB/s&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Interface&lt;/td&gt;
+&lt;td&gt;PCIe 3.0 x16&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Max Power Consumption&lt;/td&gt;
+&lt;td&gt;250 W&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Cooling&lt;/td&gt;
+&lt;td&gt;Passive&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;While it is a 7-years-old GPU, considering the price of &lt;code&gt;US$179&lt;/code&gt; and three-times the GPU memory of my GTX 1080, I was quite sold on the idea of getting it. The very significant outcome is that I would be able to train on larger batch sizes and perform more aggressive feature engineering tasks.&lt;/p&gt;
+&lt;h1 id=&#34;the-delivery-rant-skip-ahead&#34;&gt;The Delivery (rant, skip ahead)&lt;/h1&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;I smelled an absolute dogshit stench combined with fermented fishiness that it was utter horseshit. First, it came from the fact that I had never provided any signature for any delivery. Second, there was no delivery attempt, no phone calls, no SMS. But I checked the vicinity of the house anyway just to be sure. To no one&amp;rsquo;s surprise, it wasn&amp;rsquo;t there. I checked the tracking on the website and it still said delivered. WTF?&lt;/p&gt;
+&lt;p&gt;The next morning, I called Intelcom&amp;rsquo;s customer support. It was not easy finding the customer support number either, because there was (and I guarantee still is) nothing listed on the official website. What a fucking shady business that operates on anti-consumerism. Anyway, I waited 20 minutes on a line until I finally got transferred to an agent. The problem seemed to be an incorrect shipping address on the system &lt;code&gt;?? 🙂 ??&lt;/code&gt;. Whatever I&amp;rsquo;d just provide again the correct address and it&amp;rsquo;d be good (right?) and the delivery was still scheduled for Monday. Came Monday, an e-mail came around 4:00 PM saying that the GPU would be delivered from 5:00 PM to 10:00 PM. Said time period came, and I got a call from the delivery person asking for the correct address. What the fuck? Didn&amp;rsquo;t I just correct it on Sunday? Was I sleep-dialing customer support in my dream? Okay fine, I gave the person the correct address and the motherfucker literally had the gall to say that it was too far away (30 minutes) from his location so he didn&amp;rsquo;t want to deliver (????). I&amp;rsquo;m sorry, but ain&amp;rsquo;t the delivery time between 5 to 10? It was fucking 5:30 PM at that time.&lt;/p&gt;
+&lt;p&gt;To be abridged and shortened, I dealt with customer support for 2 additional times on the phone, each lasting around 30-40 minutes just to harass them to do the right thing or else I would report their ass to kingdom come with Quebec Consumer Protection Office and drag their faces through the mud on Better Business Bureau. And it motherfucking worked. I finally got the GPU on Thursday.&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;h1 id=&#34;the-installation&#34;&gt;The Installation&lt;/h1&gt;
+&lt;p&gt;After installing the card in my server, I realized that the PSU didn&amp;rsquo;t have enough power (450 W) to run the whole system with the M40 GPU. So, I ran to the nearest Canada Computers and picked up a 650 W PSU. I had to saw off the second CPU power connector clip in order to fit the card&amp;rsquo;s power slot. And&amp;hellip; It still didn&amp;rsquo;t work.&lt;/p&gt;
+&lt;p&gt;Perusing the great interweb for an hour or so, I came across a YouTube video that said I would need to enable something-something more than 4-GB decoding(?) in BIOS for it to work. The main problem was I had been running the server headlessly. That is, only through SSH and no user I/O whatsoever.&lt;/p&gt;
+&lt;p&gt;To solve this, I devised 2 options:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Buy a CPU with iGPU (my current one doesn&amp;rsquo;t have one)&lt;/li&gt;
+&lt;li&gt;Buy a cheap-ass GPU&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;For option, the most sensible thing was to get a Ryzen 3200G (I am running on an AMD motherboard). But it costs around 300 dollary-doos. On the other hand, a cheap-ass GPU would only cost me 99 Canadian rupees in total, so I went for the latter and bought a Radeon card off Amazon.&lt;/p&gt;
+&lt;p&gt;Card arrived. BIOS configured. System booted to OS. And working fine.&lt;/p&gt;
+&lt;h1 id=&#34;the-nvidia-installation&#34;&gt;The NVIDIA Installation&lt;/h1&gt;
+&lt;p&gt;The card would totally not work if there ain&amp;rsquo;t any drivers, especially for machine learning that utilizes those sweet CUDA cores.&lt;/p&gt;
+&lt;p&gt;I first disabled the default Nouveau driver:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo su
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;touch /etc/modprobe.d/blacklist-nouveau.conf
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;echo -e &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;blacklist nouveau\noptions nouveau modeset=0&amp;#34;&lt;/span&gt; &amp;gt;&amp;gt; /etc/modprobe.d/blacklist-nouveau.conf
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;update-initramfs -u
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;reboot
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Then, I installed the CUDA Toolkit using the Runfile method for easy clap:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;wget https://developer.download.nvidia.com/compute/cuda/11.7.0/local_installers/cuda_11.7.0_515.43.04_linux.run
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo sh cuda_11.7.0_515.43.04_linux.run
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Then, I installed &lt;code&gt;anaconda&lt;/code&gt; (for demo only, please refer to Anaconda official website for latest downloads):&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;wget https://repo.anaconda.com/archive/Anaconda3-2022.05-Linux-x86_64.sh &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; bash Anaconda3-2022.05-Linux-x86_64.sh
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;After that, I created a new environment, installed Jupyter Notebook and dependencies. And finally, I ran the first ever training (pictured below). I made sure to monitor the GPU usage through &lt;code&gt;nvidia-smi&lt;/code&gt; to verify if it was utilizing the GPU, not the CPU.&lt;/p&gt;
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;h1 id=&#34;afterwords&#34;&gt;Afterwords&lt;/h1&gt;
+&lt;p&gt;Looking at the whole process, I spent around &lt;code&gt;CA$350&lt;/code&gt; in total for the GPU + compatible components + other efforts. Comparing that one-time price tag (electricity excluded) to Google Colab (&lt;code&gt;CA$15&lt;/code&gt; a month if I remember correctly), I should be able to breakeven in 2 years. However, it should be taken into considerations that Google Colab has timeouts and the GPU instance provided is not guaranteed, so on a good day, you might get A100 or V100, but on a bad day, you would get the whimpy K80. Adding more to the variance, you are also dependent on the storage space of your Google Drive to store models and data, which adds 5 - 15 dollars a month for a usable amount of storage. Thus, bringing down the breakeven period to simply less than 1 year of continuous usage.&lt;/p&gt;
+&lt;p&gt;In the near future, I would want to experiment with distributed machine learning setup between the server and my workstation to see if it has any larger potential with performance gain.&lt;/p&gt;
+&lt;p&gt;Subjectively, I think the effort was worthwhile. Though, it would have been way better if it was not for Intelcom. I&amp;rsquo;m calling that shitty company out. Keep that in your mind: Intelcom is bad.&lt;/p&gt;
+</content>
+    </item>
+    
+    <item>
+      <title>Almost Had to RMA My Spanking New MacBook</title>
+      <link>https://blog.aaanh.com/posts/almost-had-to-rma-my-macbook/</link>
+      <pubDate>Sun, 10 Apr 2022 02:30:00 +0000</pubDate>
+      
+      <guid>https://blog.aaanh.com/posts/almost-had-to-rma-my-macbook/</guid>
+      <description>But I managed to recover everyting in the end 😂</description>
+      <content>&lt;p&gt;So&amp;hellip; the curiosity finally killed the cat. Recently, I installed Asahi Linux on my M1 Pro Macbook — my mission critical daily carry system without a flipping care in the world. It worked surprisingly well, no problems whatsoever, but I found it to be not as useful as I would have imagined. The problem didn&amp;rsquo;t lie with the engineering or stability of the Asahi Linux project, but rather it lied with the general support for Linux systems on ARM chip, especially for Arch-based distributions. Everything was fine but because of the lack of feature support, 5 hours ago, I decided to nuke the dual boot partition and reclaim the disk space, then reinstall macOS altogether because the OS was running a bit slow and hotter than usual.&lt;/p&gt;
+&lt;p&gt;Without searching online beforehand, I did a full wipe of whatever partitions there were on the SSD. And that right there was the gateway drug down the rabbit hole of whatever the heck Apple was doing to configure their filesystem and disk management, with the sparkling cameos of useless answers on the Apple discussion forums by wannabe gurus and quantum pseudo tech literate self-acclaimed know-it-alls.&lt;/p&gt;
+&lt;p&gt;The internal SSD of my MacBook before I solved the shenanigan, caused by blindly nuking the partitions is as followed: - disk0: 500GB — this is the physical disk total capacity - disk0s1: 500MB — GUID Partition Table - Free Space: 4xxGB — the weird-ass void - disk0s2: 2GB — the recovery partition&lt;/p&gt;
+&lt;p&gt;Initially, I deleted both the macOS (~400GB) and Linux partitions (~100GB) with the command from the Terminal in Recovery boot:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;diskutil eraseVolume free free disk0s#
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;I came across this erase command from an Asahi Linux stackoverflow post in which the OP also wanted to nuke the disk like myself. However, that was the end of the story on the post without the &amp;ldquo;what to do after you nuke&amp;rdquo; instructions. Well, I thought to myself, if there&amp;rsquo;s no sequel to this post, then the subsequent process should be easy enough. Aaaand, I was dead wrong.&lt;/p&gt;
+&lt;p&gt;The yeet of the SSD partitions leave behind the void which just could not be detected by the MacOS installer nor the graphical tool (diskutil). To make it detectable again, I had to do the most illogical thing which is expanding disk0s1 which was apparently the &amp;ldquo;GUID Partition Table&amp;rdquo;. It does not make sense because normally this partition just stores the partition table, not the whole usable partition space. But, before I came across this solution, I thought to myself, &amp;ldquo;what the heck, last resort, last ditch effort before I need to send in the laptop for RMA anyway.&amp;rdquo; Turns out, Apple&amp;rsquo;s ways of performing seemingly regular processes are &lt;em&gt;built different&lt;/em&gt;, I guess.&lt;/p&gt;
+&lt;p&gt;A note before I end this blog, I have already tried wiping ALL partitions but they are all locked by kernel (process 0). Heck, I even tried killing the kernel 🤪 process that&amp;rsquo;s using the partitions. In my defense, I was booting from a USB so killing the kernel on the internal SSD is justifiable course of action, to be honest.&lt;/p&gt;
+&lt;p&gt;So after expanding that GUID partition, the installation can be continued normally without any further hiccup. I think I&amp;rsquo;ll stray away from experimental software for now 😅 as this problem took a huge chunk of my time for troubleshooting&amp;hellip;&lt;/p&gt;
+</content>
+    </item>
+    
+    <item>
+      <title>My Dev Skill Improvement Roadmap for First Half of 2022</title>
+      <link>https://blog.aaanh.com/posts/dev-goals-first-half-2022/</link>
+      <pubDate>Sun, 06 Mar 2022 00:30:00 +0000</pubDate>
+      
+      <guid>https://blog.aaanh.com/posts/dev-goals-first-half-2022/</guid>
+      <description>Lots to learn with so little time!</description>
+      <content>&lt;blockquote&gt;
+&lt;p&gt;This is a work in progress&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;My tentative goal is to do software engineer in DevOps and SRE. Even though I am familiar with the stacks needed according to &lt;a href=&#34;https://roadmap.sh&#34;&gt;https://roadmap.sh&lt;/a&gt; for a DevOps/SRE, I am admittedly scatterbrained and quite disorganized and impulsive when it comes to actually learning the material. I might slightly be attention deficient, who knows, probably from devouring internet contents at a breakneck speed.&lt;/p&gt;
+&lt;p&gt;So, let this post be a place where I get an anchor of some sort to remind what I need to do in order to achieve my mastery in the arts of orchestration (not the musical one!).&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I embed the roadmap down here so that we don&amp;rsquo;t need to go back and forth.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&amp;lt;img src=&amp;ldquo;&lt;a href=&#34;https://roadmap.sh/roadmaps/devops.png%22&#34;&gt;https://roadmap.sh/roadmaps/devops.png&amp;quot;&lt;/a&gt; width={{ width: &amp;lsquo;640px&amp;rsquo; }} /&amp;gt;&lt;/p&gt;
+&lt;h2 id=&#34;owned-skills&#34;&gt;Owned skills&lt;/h2&gt;
+&lt;p&gt;I shall list the skill stacks that I have already acquired:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Learn a programming language: (my best 3) c++, python, nodejs&lt;/li&gt;
+&lt;li&gt;Understand different OS concepts
+&lt;ul&gt;
+&lt;li&gt;Process management&lt;/li&gt;
+&lt;li&gt;Sockets&lt;/li&gt;
+&lt;li&gt;POSIX basics&lt;/li&gt;
+&lt;li&gt;Networking concepts&lt;/li&gt;
+&lt;li&gt;I/O Management&lt;/li&gt;
+&lt;li&gt;Virtualization&lt;/li&gt;
+&lt;li&gt;Memory/Storage&lt;/li&gt;
+&lt;li&gt;FS&lt;/li&gt;
+&lt;li&gt;initd&lt;/li&gt;
+&lt;li&gt;systemd&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Managing Servers
+&lt;ul&gt;
+&lt;li&gt;OS
+&lt;ul&gt;
+&lt;li&gt;Linux-based: Ubuntu, Debian, RHEL, Arch&lt;/li&gt;
+&lt;li&gt;Windows&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Terminal workflow
+&lt;ul&gt;
+&lt;li&gt;tmux&lt;/li&gt;
+&lt;li&gt;bash scripting&lt;/li&gt;
+&lt;li&gt;powershell&lt;/li&gt;
+&lt;li&gt;editor: vim&lt;/li&gt;
+&lt;li&gt;code compilation: gcc, make, gdb&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Local System Monitoring and Process Management
+&lt;ul&gt;
+&lt;li&gt;ps, top, htop&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Networking
+&lt;ul&gt;
+&lt;li&gt;ping, nmap, tracert, ufw/iptables, dig, netstat&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Text manipulation
+&lt;ul&gt;
+&lt;li&gt;awk, grep, sed, sort, cat, echo, fmt, wc&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Web Servers
+&lt;ul&gt;
+&lt;li&gt;IIS&lt;/li&gt;
+&lt;li&gt;Nginx&lt;/li&gt;
+&lt;li&gt;Apache2&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Networking, Security, and Protocols
+&lt;ul&gt;
+&lt;li&gt;Email: SMTP, IMAPS, DMARC, SPF, DKIM&lt;/li&gt;
+&lt;li&gt;HTTP/S, FTP, SSL/TLS, SSH, port forwarding&lt;/li&gt;
+&lt;li&gt;OSI model, DNS, BGP&lt;/li&gt;
+&lt;li&gt;Whitelisting, DMZ, Firewall&lt;/li&gt;
+&lt;li&gt;Reverse proxy, load balancer&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Infrastructure as Code (IaC)
+&lt;ul&gt;
+&lt;li&gt;Containers: Docker&lt;/li&gt;
+&lt;li&gt;Configuration Management: Ansible&lt;/li&gt;
+&lt;li&gt;Container Orchestration: Kubernetes&lt;/li&gt;
+&lt;li&gt;Provisioning: Terraform&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Infrastructure Monitoring
+&lt;ul&gt;
+&lt;li&gt;Grafana, Prometheus&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;CI/CD
+&lt;ul&gt;
+&lt;li&gt;Github Actions&lt;/li&gt;
+&lt;li&gt;Azure DevOps&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Logs Management
+&lt;ul&gt;
+&lt;li&gt;Splunk&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Cloud Providers
+&lt;ul&gt;
+&lt;li&gt;Type 1:
+&lt;ul&gt;
+&lt;li&gt;AWS&lt;/li&gt;
+&lt;li&gt;Google Cloud&lt;/li&gt;
+&lt;li&gt;Azure&lt;/li&gt;
+&lt;li&gt;Heroku&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Type 2:
+&lt;ul&gt;
+&lt;li&gt;Linode&lt;/li&gt;
+&lt;li&gt;Digital Ocean&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;skills-need-to-learn-and-improve&#34;&gt;Skills need to learn and improve&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;OS Concepts:
+&lt;ul&gt;
+&lt;li&gt;Threads and Concurrency&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;System Performance:
+&lt;ul&gt;
+&lt;li&gt;all&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Web technologies:
+&lt;ul&gt;
+&lt;li&gt;WebSockets&lt;/li&gt;
+&lt;li&gt;REST api, CRUD&lt;/li&gt;
+&lt;li&gt;Webhooks&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;IaC:
+&lt;ul&gt;
+&lt;li&gt;Docker (more advanced)&lt;/li&gt;
+&lt;li&gt;Ansible (playbook to galaxy)&lt;/li&gt;
+&lt;li&gt;Kubernetes (still beginner)&lt;/li&gt;
+&lt;li&gt;Terraform (still beginner)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Networking and Security:
+&lt;ul&gt;
+&lt;li&gt;Reverse proxy (more advanced configs)&lt;/li&gt;
+&lt;li&gt;Load balancer (still beginner)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Logs management:
+&lt;ul&gt;
+&lt;li&gt;Splunk (more!)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;CI/CD:
+&lt;ul&gt;
+&lt;li&gt;Azure DevOps&lt;/li&gt;
+&lt;li&gt;Circle CI&lt;/li&gt;
+&lt;li&gt;Gitlab CI&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Cloud Providers:
+&lt;ul&gt;
+&lt;li&gt;AWS (backlog)&lt;/li&gt;
+&lt;li&gt;Google Cloud (learning Cloud Engineer associate)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h1&gt;
+&lt;p&gt;I will need to try and complete at least the Google Cloud Engineer associate learning path, reinforce my knowledge on IaC tools and frameworks, learn more about Azure DevOps and Circle CI, and then finally complete a course on REST api framework (nestjs) and kubernetes.&lt;/p&gt;
+&lt;p&gt;My goals seem a bit outlandish and probably unachievable and I will probably fail, but at the very least, I have a good image of what I need to do (or so it seems).&lt;/p&gt;
+&lt;p&gt;On another note, I am tasked with a benchmark project for MLaaS providers by my research supervisor and so far, looks like it will play well into the whole shenanigans so I will have the chance to improve hollistically. We&amp;rsquo;ll see.&lt;/p&gt;
+</content>
+    </item>
+    
+    <item>
+      <title>Self-hosted: Go big or go... home?</title>
+      <link>https://blog.aaanh.com/posts/selfhosted/</link>
+      <pubDate>Wed, 25 Aug 2021 14:30:00 +0000</pubDate>
+      
+      <guid>https://blog.aaanh.com/posts/selfhosted/</guid>
+      <description>Cloudy with a chance of hosting</description>
+      <content>&lt;h2 id=&#34;preface&#34;&gt;Preface&lt;/h2&gt;
+&lt;p&gt;Deployment is like a drug. Once you get that first taste of starting up a server and expose it to the interweb where you could practically access it anywhere, you will never be able to stop. I know that I have grown addicted to all this ever since my first deployment on AWS EC2 (which drained my pocket dry for some months). I had to shut down my websites and web services for a year or so. Then, the new age of the interweb finally reached and enlightened me. The spawn of free web application deployment and hosting services, like Gatsby and Vercel, and the shining jewel of affordable webhosting Linode had once again lit a fire under my butt.&lt;/p&gt;
+&lt;h2 id=&#34;setting-up-a-code-server&#34;&gt;Setting up a code server&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://code.hoanganh.tech&#34;&gt;Code Server (Password-protected)&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Code server, in a nutshell, is a visual studio code environment that is hosted on a remote server and accessed through client server. The code server is installed on a Linux-based OS with the Linux shell exposed so that many of the software development processes can be run natively. Although there are some catches when using a custom domain name like I do, such as front-end web frameworks and backend webapp servers that utilizes the localhost:&amp;lt;port&amp;gt; to serve the development build requires additional setups. And I skip the hassle of setting up the correct port forwardings because I only use it for code editing anyway, while the deployment preview is handled by external services that pull and from github pushes and commits.&lt;/p&gt;
+&lt;p&gt;The best use case of having a code server is that you can basically (edit) code anywhere without going through the strenuous process of setting up a local development environment on whatever temporary platform you use.&lt;/p&gt;
+&lt;p&gt;See the code server running on Chrome below:&lt;/p&gt;
+&lt;p&gt;&amp;lt;img
+src=&amp;ldquo;&lt;a href=&#34;https://lh3.googleusercontent.com/AdEHpUUTC1BK7Smsg4jAi3cEadKR6qtvv0GMxtVRui0L83viwc7A6NlZveuzMJI2Hd5d_oBX4gRwMg0_BzbjQaCOa4CbznC8KXe9LiqE4bq4uFZ9OwQsc0dbAPmjCbrxBTOiCxVQ84e8HeqMdkuzqE2IQjImKGnOq0wL4oxwnYIr838DDx_I4vPrl5msL7hY9ILB83IRlnKseezX9OVDZSBEWcjhivPIPZyg8txP5QrMYutczM7AeNBrUhi8W-rfKdzn1SoC5rd_PklmpUZann-XQYYa1yc_rBL7hUEaLas0fGw9kWpC50GyGFW-tbnQ_7ehpk1lj4M2QLRV3Fmyb-BuRM63M8l9R4a_FWEikzDb-JLl8fGAyw9AQOy_q4f0Q5Q_3hRaHCeFsjJQFdQM3i_9ijeGH05MyrmApQO-PAipaawP9S9OQGNG3ux6T5Ay4aNFBVXA-7v3zi9eGlwMeGJ0kpIfMxcHy-EwwtfUSEXpeXD1fhfCSL8jL8vuGGyWrd-Y5wlMESFlEo1PYpiZRIp78fctCTfeU2Jss9JExK2VhTNr4Ub_h8ojNc7ume7Hxojh1rkLAttg2xw7xC6_hmApy4KY7f__qA7CbbRdiLW3H2aQifMlIFmMfIzaZ2DgEOdofpjynRJ198WsbZrD3CXwDPiV_BnPNpoEqLy6VcUfneL82B5Rs92O3h52sdi4OqtmJzjjWVKcXRYI_9JZoXvnhQ=w1920-h1080-no?authuser=0%22&#34;&gt;https://lh3.googleusercontent.com/AdEHpUUTC1BK7Smsg4jAi3cEadKR6qtvv0GMxtVRui0L83viwc7A6NlZveuzMJI2Hd5d_oBX4gRwMg0_BzbjQaCOa4CbznC8KXe9LiqE4bq4uFZ9OwQsc0dbAPmjCbrxBTOiCxVQ84e8HeqMdkuzqE2IQjImKGnOq0wL4oxwnYIr838DDx_I4vPrl5msL7hY9ILB83IRlnKseezX9OVDZSBEWcjhivPIPZyg8txP5QrMYutczM7AeNBrUhi8W-rfKdzn1SoC5rd_PklmpUZann-XQYYa1yc_rBL7hUEaLas0fGw9kWpC50GyGFW-tbnQ_7ehpk1lj4M2QLRV3Fmyb-BuRM63M8l9R4a_FWEikzDb-JLl8fGAyw9AQOy_q4f0Q5Q_3hRaHCeFsjJQFdQM3i_9ijeGH05MyrmApQO-PAipaawP9S9OQGNG3ux6T5Ay4aNFBVXA-7v3zi9eGlwMeGJ0kpIfMxcHy-EwwtfUSEXpeXD1fhfCSL8jL8vuGGyWrd-Y5wlMESFlEo1PYpiZRIp78fctCTfeU2Jss9JExK2VhTNr4Ub_h8ojNc7ume7Hxojh1rkLAttg2xw7xC6_hmApy4KY7f__qA7CbbRdiLW3H2aQifMlIFmMfIzaZ2DgEOdofpjynRJ198WsbZrD3CXwDPiV_BnPNpoEqLy6VcUfneL82B5Rs92O3h52sdi4OqtmJzjjWVKcXRYI_9JZoXvnhQ=w1920-h1080-no?authuser=0&amp;quot;&lt;/a&gt;
+style={{ width: &amp;lsquo;630px&amp;rsquo; }}
+/&amp;gt;&lt;/p&gt;
+&lt;p&gt;Setting up a code server is rather easy. There are many tutorials on Google search results I have tried that work perfectly. But since I have already joined the cult of Linode, I simply spin up a code server template from Linode&amp;rsquo;s marketplace. The process probably took at most 10 minutes, while the SSL cert was the more PITA thing to do.&lt;/p&gt;
+&lt;h2 id=&#34;the-minecraft-server&#34;&gt;The Minecraft server&lt;/h2&gt;
+&lt;p&gt;(TBA)&lt;/p&gt;
+&lt;h2 id=&#34;the-vpn-servers&#34;&gt;The VPN servers&lt;/h2&gt;
+&lt;p&gt;(TBA)&lt;/p&gt;
+&lt;h2 id=&#34;the-homelab&#34;&gt;The Homelab&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://linux.hoanganh.tech&#34;&gt;Currently serving a static HTML on &lt;code&gt;linux.hoanganh.tech&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;&#34;&gt;ssh and xrdp can be accessed through &lt;code&gt;homelab.hoanganh.tech&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Hosting a homeserver at home that is accessible to the interweb requires your ISP to provide you with a static IP, which was impossible before at my previous apartment because I was not the internet account holder nor was the router placed in my room. Now, I am able to reserve my own IP to the interweb, route that through Cloudflare et voila.&lt;/p&gt;
+&lt;p&gt;In details, it was a bit more complicated. Currently, I have 2 ports forwarded for Remote Desktop Protocol, one for my Linux server GUI and one for my Windows workstation, which are pointed at by 2 CNAMEs configured on Cloudflare: &lt;code&gt;homelab.hoanganh.tech&lt;/code&gt; and &lt;code&gt;home.hoanganh.tech&lt;/code&gt;. Then, a third CNAME, &lt;code&gt;linux.hoanganh.tech&lt;/code&gt;, points to the static web server nginx running on the same Linux server. Introduce the brainfuckery, they are all routed through 1 single IP provided by the Internet Service Provider (ISP). So, for each of these servers/services, I must use separate port. For example, (X)RDP on Linux server is forwarded to port 0001, RDP on Windows is 0002, HTTP on Linux is 80(80), and HTTPS on Linux is 443, and so forth. Took me a while to figure that out and configure on my local machines, on the ISP router portal, and on Cloudflare.&lt;/p&gt;
+&lt;h2 id=&#34;the-mail-server&#34;&gt;The mail server&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;mailto:iam@hoanganh.tech&#34;&gt;&lt;code&gt;iam(at)hoanganh(dot)tech&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Initially, I set up the domain with Zoho mail. But because I don&amp;rsquo;t use any of the services that Zoho offers, I migrated everything to Google&amp;rsquo;s G Suite (now Google Workspace). The setup was painless. All I needed to do is copy-paste some MX and DKIM values provided by Google and onto Cloudflare DNS.&lt;/p&gt;
+&lt;p&gt;Well, there&amp;rsquo;s always a catch, isn&amp;rsquo;t it? The catch for migration is actually migrating old emails from iCloud and Zoho servers to their new home on Google Workspace. First of all, I have to add the Zoho account to Thunderbird client. Then, I retrieve all the mails from the Zoho account. Finally, I export them to file which I then upload to Gmail. Now, for the iCloud mail, I use the Mail app on macOS to export all mails, which took a day, then upload the exported file to Gmail. Boom. Done.&lt;/p&gt;
+&lt;p&gt;The Google Workspace plan that I use is the Business Standard which the following perks:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://lh3.googleusercontent.com/U6Yos6bn1ATdLNzTKgvaqNkb11lKri1icGeweG_zcim0HFuKMfNq2yaGYiDSvJd_wDI9yr_EKd5SSZ8X8No26MwqeNK6SsKo5kAESxBwxTfUwakEmcHWBvar6Um__skEa-pl5OR7lx6t6qk3BRPKzyCM8wbagWBEzc4c4VRlPbHsxHnPJxdsrE6M90kUBHrp9lv9fMef5zQQfyvFtjDKcbC9wktWsVNC_lbpBe_bAOrPileSCQxYpKbLF_uCnamaQl3zkfProuxYxs1XuWyrDjwd8w8Z1nL1KG1mTIiUuWr6zMUrDdjJx-GyYicUVoamSf1RowUMmcgsQG-A9k6TAB8Le7YvKtm-wxFJSEB9BEKGzVHT2orhYc6VWWBwZ0ypFoyN4YiFopIFPvuusuVyYM_ywohJhUtn49dyoPGAo0C3cvynbIEVaCvRwE9T0tKPuOxWr9RkuNQIH2ZOF1Kf7Fb-h1tKlH1pPtnjhlBCI_KNRELCvOfHtjHwCL8lChUJQpj4mYyS_g1XHdkQ7MJYZibvKzDKLCmWHz33YHuK7WVYtuJebPVa6luU_NdNFzN-oLB5xp3BkzERStn7HCFUwisgzYxq_9nDYQICQlmM1zY_GvGot3y4OGi4nTzxj_RG7eP5A_-gCibYO4tqFVP1Dj7FJE-NgOCNqxjqQZUOuwY5ctseuh1gHqO3c12Vz-jS51H214LWntSCkGF4kdKjDrsLaA=w576-h1354-no?authuser=0&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;My target is to get the 2TB of cloud storage so that I could store my po&amp;hellip; photos and videos of cats. In all seriousness, mainly important documents and auto HQ photo backup. I might switch to the Business Starter plan which costs half the price, but 2TB is really nice to have.&lt;/p&gt;
+</content>
+    </item>
+    
+  </channel>
+</rss>

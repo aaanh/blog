@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>Holocure Save File Restore :: Anh&#39;s Tech Blog</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Had insomnia last night so I stayed up until dawn playing Holocure" />
+<meta name="keywords" content="" />
+<meta name="robots" content="noodp" />
+
+<link rel="canonical" href="https://blog.aaanh.com/posts/holocure-save-file/" />
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="https://blog.aaanh.com/styles.css">
+
+
+
+
+
+
+
+  <link rel="shortcut icon" href="https://blog.aaanh.com/img/theme-colors/green.png">
+  <link rel="apple-touch-icon" href="https://blog.aaanh.com/img/theme-colors/green.png">
+
+
+
+<meta name="twitter:card" content="summary" />
+
+  
+    <meta name="twitter:site" content="" />
+  
+    <meta name="twitter:creator" content="" />
+
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Holocure Save File Restore">
+<meta property="og:description" content="Had insomnia last night so I stayed up until dawn playing Holocure" />
+<meta property="og:url" content="https://blog.aaanh.com/posts/holocure-save-file/" />
+<meta property="og:site_name" content="Anh&#39;s Tech Blog" />
+
+  
+    <meta property="og:image" content="https://blog.aaanh.com/img/favicon/green.png">
+  
+
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="627">
+
+
+  <meta property="article:published_time" content="2022-07-03 04:30:00 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body class="green">
+
+
+<div class="container center headings--one-size">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    Anh&#39;s Tech Blog
+  </div>
+</a>
+
+    </div>
+    
+      <ul class="menu menu--mobile">
+  <li class="menu__trigger">Menu&nbsp;▾</li>
+  <li>
+    <ul class="menu__dropdown">
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+        
+          <li><a href="/tags">Tags</a></li>
+        
+      
+      
+    </ul>
+  </li>
+</ul>
+
+    
+    
+  </div>
+  
+  <nav class="navigation-menu">
+  <ul class="navigation-menu__inner menu--desktop">
+    
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+        
+          <li><a href="/tags">Tags</a></li>
+        
+      
+      
+    
+  </ul>
+</nav>
+
+  
+  <div class="author">
+    
+    Created by&nbsp;<a href="https://aaanh.ca">Anh Hoang Nguyen</a> <img src="https://avatars.githubusercontent.com/u/37283437?v=4" width="128px" height="128px"> |&nbsp;<a href="https://github.com/aaanh/blog">Github</a>&nbsp;|&nbsp;<a href="https://twitter.com/aaaaaaaaaanh">Twitter</a>
+  </div>
+</header>
+
+
+  <div class="content">
+    
+<article class="post">
+  <h1 class="post-title">
+    <a href="https://blog.aaanh.com/posts/holocure-save-file/">Holocure Save File Restore</a>
+  </h1>
+  <div class="post-meta">
+    
+      <time class="post-date">
+        2022-07-03 ::
+        
+      </time>
+    
+    
+    
+  </div>
+
+  
+    <span class="post-tags">
+      
+      #<a href="https://blog.aaanh.com/tags/game/">game</a>&nbsp;
+      
+      #<a href="https://blog.aaanh.com/tags/hacking/">hacking</a>&nbsp;
+      
+      #<a href="https://blog.aaanh.com/tags/holocure/">holocure</a>&nbsp;
+      
+    </span>
+  
+  
+
+
+  
+    <div class="table-of-contents">
+      <h2>
+        Table of Contents
+      </h2>
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#restore-steps">Restore Steps</a></li>
+    <li><a href="#backup-strategies">Backup Strategies</a>
+      <ul>
+        <li><a href="#cloud-sync">Cloud Sync</a></li>
+        <li><a href="#shadow-copy">Shadow Copy</a></li>
+        <li><a href="#practice-3-2-1">Practice 3-2-1</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+  
+
+  <div class="post-content"><div>
+        <p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h1 id="background">Background<a href="#background" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h1>
+<p><a href="https://kay-yu.itch.io/holocure">Holocure</a> is a fan-made content by the animator <a href="https://twitter.com/kaynimatic">Kay Yu</a> in the form of a survival, roguelike, shoot 'em up game. The gameplay mechanics are similar to those of the game <a href="https://store.steampowered.com/app/1794680/Vampire_Survivors/">Vampire Survivors</a>. The game content features <a href="https://hololive.hololivepro.com/">Hololive</a> characters, who are Virtual YouTubers (vtubers), along with their references and signature items.</p>
+<p>The game target platform is <code>win32</code>.</p>
+<h1 id="problem-statements">Problem Statements<a href="#problem-statements" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h1>
+<ul>
+<li>You want to continue your Holocure progress on another Windows machine.</li>
+<li>You have a backed up save file <code>save.dat</code>.</li>
+<li>You can only download the latest version of Holocure.
+<ul>
+<li>You don&rsquo;t have access to the version of assemblies that generated the <code>save.dat</code>.</li>
+</ul>
+</li>
+<li>You don&rsquo;t trust scripts and tools on the Interweb, preferring to do it manually.
+<ul>
+<li>You are somewhat competent at more technical computing concepts &amp; operations.</li>
+</ul>
+</li>
+</ul>
+<h1 id="methodology">Methodology<a href="#methodology" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h1>
+<h2 id="restore-steps">Restore Steps<a href="#restore-steps" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p><strong>On your brand spanking new machine</strong></p>
+<ul>
+<li>Generate the initial save folder
+<ol>
+<li>Download the game from official release channel <a href="https://kay-yu.itch.io/holocure">https://kay-yu.itch.io/holocure</a>.</li>
+<li>Launch the game for the first time.</li>
+<li>Get to the game main menu.</li>
+<li>Exit it.</li>
+</ol>
+</li>
+<li>Get content of new <code>save.dat</code> file. All steps in this section are performed on the new save directory that the game generates by default.
+<ol>
+<li><!-- raw HTML omitted -->Win<!-- raw HTML omitted --> + <!-- raw HTML omitted -->R<!-- raw HTML omitted -->{&rsquo; &lsquo;}</li>
+<li>Paste this path in and hit <!-- raw HTML omitted -->Enter<!-- raw HTML omitted -->:
+<pre tabindex="0"><code>%USERPROFILE%\AppData\Local\Holocure
+</code></pre></li>
+<li>⚠ Make a backup immediately ⚠
+<ul>
+<li>Right-click <code>save.dat</code> &gt; Copy &gt; <!-- raw HTML omitted -->CTRL<!-- raw HTML omitted --> + <!-- raw HTML omitted -->V<!-- raw HTML omitted --></li>
+<li>Name the copy <code>save.dat.bak</code> or something</li>
+</ul>
+</li>
+<li>Open <code>save.dat</code> file there with a text editor
+<ul>
+<li>save.dat: ASCII text, with very long lines (1560), with no line terminators</li>
+<li>The file is encoded in base64</li>
+</ul>
+</li>
+<li>Copy all the content and paste it into <a href="https://www.base64decode.org/">a decoder like base64</a>
+<ul>
+<li>Or use <code>base64</code> CLI in WSL <code>base64 -d save.dat &gt;&gt; save.decoded.</code></li>
+</ul>
+</li>
+<li>Sample decoded file:
+<ul>
+<li><!-- raw HTML omitted --><!-- raw HTML omitted --></li>
+</ul>
+</li>
+<li>You are probably seeing a string like this:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">y</span><span style="color:#ae81ff">4</span><span style="color:#960050;background-color:#1e0010">ݴouy</span>{<span style="color:#960050;background-color:#1e0010">F{sm</span>}<span style="color:#960050;background-color:#1e0010">^svi</span><span style="color:#ae81ff">8</span><span style="color:#960050;background-color:#1e0010">s</span><span style="color:#ae81ff">6</span><span style="color:#960050;background-color:#1e0010">}</span>{<span style="color:#960050;background-color:#1e0010">Vk{</span> <span style="color:#f92672">&#34;food&#34;</span>: <span style="color:#ae81ff">1.0</span>, <span style="color:#f92672">&#34;specUnlock&#34;</span>: <span style="color:#ae81ff">1.0</span>, <span style="color:#f92672">&#34;haste&#34;</span>: <span style="color:#ae81ff">2.0</span>, <span style="color:#f92672">&#34;holoCoins&#34;</span>: <span style="color:#ae81ff">-136.0</span>, <span style="color:#f92672">&#34;unlockedItems&#34;</span>: [ <span style="color:#e6db74">&#34;BodyPillow&#34;</span>, <span style="color:#e6db74">&#34;FullMeal&#34;</span>, <span style="color:#e6db74">&#34;PikiPikiPiman&#34;</span>, <span style="color:#e6db74">&#34;SuccubusHorn&#34;</span>, <span style="color:#e6db74">&#34;Headphones&#34;</span>, <span style="color:#e6db74">&#34;UberSheep&#34;</span><span style="color:#960050;background-color:#1e0010">........</span>
+</span></span></code></pre></div></li>
+<li>Look for <code>randomMoneyKey</code> attribute and write down its the numeric value
+<ul>
+<li>Example: <code>&quot;randomMoneyKey&quot;: 420.0</code></li>
+<li>This is a randomly generated &ldquo;key&rdquo; that acts as an anti-cheat for the money you have.</li>
+</ul>
+</li>
+<li>Pay attention to the first non-sensical word in double quotes you can see
+<ul>
+<li>In this case, <code>&quot;food&quot;</code></li>
+</ul>
+</li>
+<li>Trace backwards to the closest open curly bracket <code>{</code></li>
+<li>Copy the portion from and including that bracket till the end and including the weird box character.</li>
+<li>Paste into <a href="https://www.base64encode.org/">the tool</a></li>
+<li>Re-encode the string segment into base64
+<ul>
+<li>You get something like <code>eyAiZm9vZCI6........</code></li>
+<li>This gives you the starting point of the actual saved progress of the game.</li>
+</ul>
+</li>
+<li>So, back in the <code>save.dat</code>, find where the segment you got from the previous step is and yeet that.</li>
+<li>Save the modified <code>save.dat</code> file.</li>
+<li>This step concludes the preparation of the local save directory.</li>
+</ol>
+</li>
+<li>Prepping the backed up <code>save.dat</code> file containing your progress
+<ol>
+<li>Download or transfer the file to your new machine.</li>
+<li>For concision, this guide assumes you paste the <code>save.dat</code> file on your <code>%USERPROFILE%\Desktop</code></li>
+<li>Open the file with a text editor</li>
+<li>Decode it</li>
+<li>Look for the <code>randomMoneyKey</code> attribute</li>
+<li>Change its value to the number you got from the default file at <code>%USERPROFILE%\AppData\Local\Holocure\save.dat</code>
+<ul>
+<li>In this case, <code>420.0</code></li>
+</ul>
+</li>
+<li>With that value change, like the logic you did with the default file
+<ul>
+<li>Find the first non-sensical word in that string</li>
+<li>Trace backwards to the closest open curly bracket <code>{</code></li>
+<li>Copy the portion from and including that bracket till the end and including the weird box character.</li>
+</ul>
+</li>
+<li>Paste the copied string to <a href="https://base64encode.org">the encoder</a></li>
+<li>Re-encode it.</li>
+<li>Copy the re-encoded string.</li>
+</ol>
+</li>
+<li>Back to the directory <code>%USERPROFILE%\AppData\Local\Holocure\</code>
+<ol>
+<li>Open the <code>save.dat</code> file if you have not already.</li>
+<li>Paste (append) the copied string right after whatever is there, make sure there&rsquo;s no whitespace <!-- raw HTML omitted -->Space<!-- raw HTML omitted -->.</li>
+<li>Save it.</li>
+</ol>
+</li>
+<li>Re-open HoloCure</li>
+<li>Et voila, it is back.</li>
+</ul>
+<h2 id="backup-strategies">Backup Strategies<a href="#backup-strategies" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h3 id="cloud-sync">Cloud Sync<a href="#cloud-sync" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<ul>
+<li>I use Google Drive to automatically back up that specific folder
+<pre tabindex="0"><code>%USERPROFILE%\AppData\Local\Holocure
+</code></pre>Since I have Google Drive desktop installed already on all my computers.</li>
+<li>But, to be noted that you would only need the <code>save.dat</code> file to properly restore your progress.</li>
+</ul>
+<h3 id="shadow-copy">Shadow Copy<a href="#shadow-copy" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<ul>
+<li>You can make a shadow copy of the folder.</li>
+<li>Won&rsquo;t go into details, there are guides out there on the internet.</li>
+<li>Copy that blob to your new machine.</li>
+</ul>
+<h3 id="practice-3-2-1">Practice 3-2-1<a href="#practice-3-2-1" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>High resilient data recovery strategy in the event of any type of disaster, except Earth&rsquo;s complete destruction.</p>
+<ul>
+<li>3 daily backups.</li>
+<li>2 on-site (different machine/server, on a NAS, on a cold storage medium like tape, on a USB key).</li>
+<li>1 off-site (preferably different region).</li>
+</ul>
+<h1 id="backstory">Backstory<a href="#backstory" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h1>
+<p>Because I wanted to continue my Holocure progress on my laptop while lying on my bed, I needed to transfer the progress from my desktop tower. That&rsquo;s it, lol 😂.</p>
+<h1 id="contact-assistance-request-bug-report">Contact, assistance request, bug report<a href="#contact-assistance-request-bug-report" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h1>
+<p>ℹ Please submit an issue at <a href="https://github.com/aaanh/ml/issues">https://github.com/aaanh/ml/issues</a>.</p>
+
+      </div></div>
+
+  
+    
+<div class="pagination">
+    <div class="pagination__title">
+        <span class="pagination__title-h">Read other posts</span>
+        <hr />
+    </div>
+    <div class="pagination__buttons">
+        
+        <span class="button previous">
+            <a href="https://blog.aaanh.com/posts/building-towards-mlaas-taxonomy/">
+                <span class="button__icon">←</span>
+                <span class="button__text">Building Towards a Taxonomy of MLaaS</span>
+            </a>
+        </span>
+        
+        
+        <span class="button next">
+            <a href="https://blog.aaanh.com/posts/google-cloud-run-bonanza/">
+                <span class="button__text">Google Cloud Platform Bonanza - Cloud Run</span>
+                <span class="button__icon">→</span>
+            </a>
+        </span>
+        
+    </div>
+</div>
+
+  
+
+  
+    
+
+  
+</article>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright">
+        <span>© 2023 Powered by <a href="http://gohugo.io">Hugo</a></span>
+    
+      <span>:: <a href="https://github.com/panr/hugo-theme-terminal" target="_blank">Theme</a> made by <a href="https://github.com/panr" target="_blank">panr</a></span>
+      </div>
+  </div>
+</footer>
+
+
+
+
+
+
+<script type="text/javascript" src="/bundle.min.js"></script>
+
+
+
+
+
+  
+</div>
+
+</body>
+</html>

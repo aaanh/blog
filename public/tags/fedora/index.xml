@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>fedora on Anh&#39;s Tech Blog</title>
+    <link>https://blog.aaanh.com/tags/fedora/</link>
+    <description>Recent content in fedora on Anh&#39;s Tech Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 22 Feb 2023 20:30:00 +0000</lastBuildDate><atom:link href="https://blog.aaanh.com/tags/fedora/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Switch All My Linux Systems to RHEL from Ubuntu</title>
+      <link>https://blog.aaanh.com/posts/from-ubuntu-to-rhel/</link>
+      <pubDate>Wed, 22 Feb 2023 20:30:00 +0000</pubDate>
+      
+      <guid>https://blog.aaanh.com/posts/from-ubuntu-to-rhel/</guid>
+      <description>Ubuntu keeps annoying the heck out of me. Or maybe I&amp;rsquo;m getting older.</description>
+      <content></content>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>research on Anh&#39;s Tech Blog</title>
+    <link>https://blog.aaanh.com/tags/research/</link>
+    <description>Recent content in research on Anh&#39;s Tech Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 23 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.aaanh.com/tags/research/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Setting Up a Barebone Dedicated ML Server</title>
+      <link>https://blog.aaanh.com/posts/setting-up-a-barebone-ml-server/</link>
+      <pubDate>Sat, 23 Jul 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.aaanh.com/posts/setting-up-a-barebone-ml-server/</guid>
+      <description>I sure hope that I will make-even with this investment 💸</description>
+      <content>&lt;h1 id=&#34;the-purchase&#34;&gt;The Purchase&lt;/h1&gt;
+&lt;p&gt;Back in July 2, after a bi-weekly report on my research progress to the group, I headed to eBay to buy a dedicated GPU for the machine learning tasks that I am performing. The reason, to quell my predictable buyer&amp;rsquo;s remorse, was to have a separate accelerator card from my workstation that runs on my homelab server instead. This card would need to have a (more) massive physical memory than the measly 8GB that my GTX 1080 has and quite a lot cheaper to actually justify the purchase.&lt;/p&gt;
+&lt;p&gt;After digging around for few hours, I stumbled upon the NVidia Tesla M40 GPU. It is a data-center class GPU based on the &lt;strong&gt;M&lt;/strong&gt;axwell architecture.&lt;/p&gt;
+&lt;p&gt;Here are the specifications:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Attribute&lt;/th&gt;
+&lt;th&gt;Value&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;GPU Architecture&lt;/td&gt;
+&lt;td&gt;NVIDIA Maxwell&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;CUDA Cores&lt;/td&gt;
+&lt;td&gt;3072&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Single-Precision Perf&lt;/td&gt;
+&lt;td&gt;7 TFlops w/ NVIDIA GPU Boost&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Double-Precision Perf&lt;/td&gt;
+&lt;td&gt;0.2 TFlops&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;GPU Memory&lt;/td&gt;
+&lt;td&gt;24 GB GDDR5&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Memory Bandwidth&lt;/td&gt;
+&lt;td&gt;288 GB/s&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Interface&lt;/td&gt;
+&lt;td&gt;PCIe 3.0 x16&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Max Power Consumption&lt;/td&gt;
+&lt;td&gt;250 W&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Cooling&lt;/td&gt;
+&lt;td&gt;Passive&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;While it is a 7-years-old GPU, considering the price of &lt;code&gt;US$179&lt;/code&gt; and three-times the GPU memory of my GTX 1080, I was quite sold on the idea of getting it. The very significant outcome is that I would be able to train on larger batch sizes and perform more aggressive feature engineering tasks.&lt;/p&gt;
+&lt;h1 id=&#34;the-delivery-rant-skip-ahead&#34;&gt;The Delivery (rant, skip ahead)&lt;/h1&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;I smelled an absolute dogshit stench combined with fermented fishiness that it was utter horseshit. First, it came from the fact that I had never provided any signature for any delivery. Second, there was no delivery attempt, no phone calls, no SMS. But I checked the vicinity of the house anyway just to be sure. To no one&amp;rsquo;s surprise, it wasn&amp;rsquo;t there. I checked the tracking on the website and it still said delivered. WTF?&lt;/p&gt;
+&lt;p&gt;The next morning, I called Intelcom&amp;rsquo;s customer support. It was not easy finding the customer support number either, because there was (and I guarantee still is) nothing listed on the official website. What a fucking shady business that operates on anti-consumerism. Anyway, I waited 20 minutes on a line until I finally got transferred to an agent. The problem seemed to be an incorrect shipping address on the system &lt;code&gt;?? 🙂 ??&lt;/code&gt;. Whatever I&amp;rsquo;d just provide again the correct address and it&amp;rsquo;d be good (right?) and the delivery was still scheduled for Monday. Came Monday, an e-mail came around 4:00 PM saying that the GPU would be delivered from 5:00 PM to 10:00 PM. Said time period came, and I got a call from the delivery person asking for the correct address. What the fuck? Didn&amp;rsquo;t I just correct it on Sunday? Was I sleep-dialing customer support in my dream? Okay fine, I gave the person the correct address and the motherfucker literally had the gall to say that it was too far away (30 minutes) from his location so he didn&amp;rsquo;t want to deliver (????). I&amp;rsquo;m sorry, but ain&amp;rsquo;t the delivery time between 5 to 10? It was fucking 5:30 PM at that time.&lt;/p&gt;
+&lt;p&gt;To be abridged and shortened, I dealt with customer support for 2 additional times on the phone, each lasting around 30-40 minutes just to harass them to do the right thing or else I would report their ass to kingdom come with Quebec Consumer Protection Office and drag their faces through the mud on Better Business Bureau. And it motherfucking worked. I finally got the GPU on Thursday.&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;h1 id=&#34;the-installation&#34;&gt;The Installation&lt;/h1&gt;
+&lt;p&gt;After installing the card in my server, I realized that the PSU didn&amp;rsquo;t have enough power (450 W) to run the whole system with the M40 GPU. So, I ran to the nearest Canada Computers and picked up a 650 W PSU. I had to saw off the second CPU power connector clip in order to fit the card&amp;rsquo;s power slot. And&amp;hellip; It still didn&amp;rsquo;t work.&lt;/p&gt;
+&lt;p&gt;Perusing the great interweb for an hour or so, I came across a YouTube video that said I would need to enable something-something more than 4-GB decoding(?) in BIOS for it to work. The main problem was I had been running the server headlessly. That is, only through SSH and no user I/O whatsoever.&lt;/p&gt;
+&lt;p&gt;To solve this, I devised 2 options:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Buy a CPU with iGPU (my current one doesn&amp;rsquo;t have one)&lt;/li&gt;
+&lt;li&gt;Buy a cheap-ass GPU&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;For option, the most sensible thing was to get a Ryzen 3200G (I am running on an AMD motherboard). But it costs around 300 dollary-doos. On the other hand, a cheap-ass GPU would only cost me 99 Canadian rupees in total, so I went for the latter and bought a Radeon card off Amazon.&lt;/p&gt;
+&lt;p&gt;Card arrived. BIOS configured. System booted to OS. And working fine.&lt;/p&gt;
+&lt;h1 id=&#34;the-nvidia-installation&#34;&gt;The NVIDIA Installation&lt;/h1&gt;
+&lt;p&gt;The card would totally not work if there ain&amp;rsquo;t any drivers, especially for machine learning that utilizes those sweet CUDA cores.&lt;/p&gt;
+&lt;p&gt;I first disabled the default Nouveau driver:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo su
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;touch /etc/modprobe.d/blacklist-nouveau.conf
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;echo -e &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;blacklist nouveau\noptions nouveau modeset=0&amp;#34;&lt;/span&gt; &amp;gt;&amp;gt; /etc/modprobe.d/blacklist-nouveau.conf
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;update-initramfs -u
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;reboot
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Then, I installed the CUDA Toolkit using the Runfile method for easy clap:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;wget https://developer.download.nvidia.com/compute/cuda/11.7.0/local_installers/cuda_11.7.0_515.43.04_linux.run
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo sh cuda_11.7.0_515.43.04_linux.run
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Then, I installed &lt;code&gt;anaconda&lt;/code&gt; (for demo only, please refer to Anaconda official website for latest downloads):&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;wget https://repo.anaconda.com/archive/Anaconda3-2022.05-Linux-x86_64.sh &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; bash Anaconda3-2022.05-Linux-x86_64.sh
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;After that, I created a new environment, installed Jupyter Notebook and dependencies. And finally, I ran the first ever training (pictured below). I made sure to monitor the GPU usage through &lt;code&gt;nvidia-smi&lt;/code&gt; to verify if it was utilizing the GPU, not the CPU.&lt;/p&gt;
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;h1 id=&#34;afterwords&#34;&gt;Afterwords&lt;/h1&gt;
+&lt;p&gt;Looking at the whole process, I spent around &lt;code&gt;CA$350&lt;/code&gt; in total for the GPU + compatible components + other efforts. Comparing that one-time price tag (electricity excluded) to Google Colab (&lt;code&gt;CA$15&lt;/code&gt; a month if I remember correctly), I should be able to breakeven in 2 years. However, it should be taken into considerations that Google Colab has timeouts and the GPU instance provided is not guaranteed, so on a good day, you might get A100 or V100, but on a bad day, you would get the whimpy K80. Adding more to the variance, you are also dependent on the storage space of your Google Drive to store models and data, which adds 5 - 15 dollars a month for a usable amount of storage. Thus, bringing down the breakeven period to simply less than 1 year of continuous usage.&lt;/p&gt;
+&lt;p&gt;In the near future, I would want to experiment with distributed machine learning setup between the server and my workstation to see if it has any larger potential with performance gain.&lt;/p&gt;
+&lt;p&gt;Subjectively, I think the effort was worthwhile. Though, it would have been way better if it was not for Intelcom. I&amp;rsquo;m calling that shitty company out. Keep that in your mind: Intelcom is bad.&lt;/p&gt;
+</content>
+    </item>
+    
+    <item>
+      <title>Building Towards a Taxonomy of MLaaS</title>
+      <link>https://blog.aaanh.com/posts/building-towards-mlaas-taxonomy/</link>
+      <pubDate>Mon, 04 Jul 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.aaanh.com/posts/building-towards-mlaas-taxonomy/</guid>
+      <description>There is a scarcity in terms of papers 😣 so I have to get creative 💡</description>
+      <content>&lt;blockquote&gt;
+&lt;p&gt;⚠ Under Construction. Please check back later or help yourself with my previous publications 🤗.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;This post is adapted on my internal report #3, as part of my research group efforts in studying and developing machine learning processes, frameworks, and knowledge base. In addition to the adaptation of the report, I add further context for general viewership comprehension.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;the-building-blocks-or-components&#34;&gt;The Building Blocks (or Components)&lt;/h2&gt;
+&lt;h3 id=&#34;service-oriented-architecture&#34;&gt;Service-Oriented Architecture&lt;/h3&gt;
+&lt;h3 id=&#34;service-component-architecture&#34;&gt;Service Component Architecture&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;According to the &lt;a href=&#34;http://www.oasis-opencsa.org&#34;&gt;OASIS Open Composite Services Architecture&lt;/a&gt;, SCA comprises 3 attributes(?)/specifications(?):
+&lt;ul&gt;
+&lt;li&gt;Components&lt;/li&gt;
+&lt;li&gt;Composites&lt;/li&gt;
+&lt;li&gt;Services&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The components implement its business function; the composites assemble multiple compnents together to create business solutions; and the services create an interface for the user with the component and composite functions.&lt;/p&gt;
+&lt;p&gt;So, we can apply such concept to reach an understanding that any MLaaS is built upon many functional components, be them data-related or training task-related. The user can pick and choose any or all the functional components to achieve their goals via a unified interface, e.g. a web console.&lt;/p&gt;
+&lt;p&gt;Building further on this concept, providers can target different market segments and technical levels while also easily maintain the contractual service level agreements (SLA) and define key service level objectives (SLO). This homing-in is achieved through the modularity and scalability of the service product.&lt;/p&gt;
+&lt;h3 id=&#34;attributes-of-a-mlaas&#34;&gt;Attributes of a MLaaS&lt;/h3&gt;
+&lt;p&gt;Machine Learning as a Service (MLaaS) from a high level perspective is very much similar to Platform as a Service (PaaS). It is evident by the following observabile-at-a-glance features:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Is a cloud-based service&lt;/li&gt;
+&lt;li&gt;Accessible through web-based (RESTful) UI or API calls from a CLI tool&lt;/li&gt;
+&lt;li&gt;Scalable based on the workload
+&lt;ul&gt;
+&lt;li&gt;Compute resources&lt;/li&gt;
+&lt;li&gt;Database size&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Data security, privacy provisions&lt;/li&gt;
+&lt;li&gt;High availability and fault tolerant&lt;/li&gt;
+&lt;li&gt;Automation-friendly, which is crucial for MLOps&lt;/li&gt;
+&lt;li&gt;Offering flexible pricing models&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Now that we lay the foundation for MLaaS roughly can be. One might pose the question, well then, how do we differentiate MLaaS from other types of services? We might want to consider viewing it as being encapsulated by the PaaS and offering more specialized tools and functions that non-ML platforms. Or MLaaS is at the same layer/level of a PaaS and the sole job of MLaaS is its namesakes. Maybe we can consider the types of models that a service provide or the availability of an ML model itself.&lt;/p&gt;
+&lt;h2 id=&#34;putting-the-blocks-together&#34;&gt;Putting the Blocks Together&lt;/h2&gt;
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;p&gt;Something something&lt;/p&gt;
+&lt;h2 id=&#34;in-reality-tesla&#34;&gt;In Reality (Tesla)&lt;/h2&gt;
+&lt;h2 id=&#34;going-back-to-our-research-interests&#34;&gt;Going Back to Our Research Interests&lt;/h2&gt;
+&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.oasis-opencsa.org/sca&#34;&gt;Service Component Architecture (SCA). Edwards, Oasis-OpenCSA.org&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://drive.google.com/open?id=1SGRBGFTs7QGNBfOI59L3PovjtqN7RuNK&amp;amp;authuser=iam%40hoanganh.tech&amp;amp;usp=drive_fs&#34;&gt;MLModelCI: An Automatic Cloud Platform for Efficient MLaaS. Zhang et al.&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://drive.google.com/open?id=10KdimmnGQtjReA8bKaUmzBKeJ1icczN0&amp;amp;authuser=iam%40hoanganh.tech&amp;amp;usp=drive_fs&#34;&gt;MLaaS: Machine Learning as a Service. Ribeiro et al.&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://drive.google.com/open?id=1-qRhjVQisle7tfRoZIiqVtffloUO5Air&amp;amp;authuser=iam%40hoanganh.tech&amp;amp;usp=drive_fs&#34;&gt;Patent “Data Pipeline and Deep Learning System for Autonomous Driving”. Uvarov, Tesla Inc.&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=Ucp0TTmvqOE&amp;amp;t=7760s&amp;amp;ab_channel=Tesla&#34;&gt;Andrej Karpathy presentation at Tesla Autonomy Day, Tesla on YouTube.&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=oBklltKXtDE&amp;amp;t=507s&amp;amp;ab_channel=PyTorch&#34;&gt;Andrey Karpathy presentation at PyTorch at Tesla, PyTorch on YouTube.&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    </item>
+    
+    <item>
+      <title>Initiate Exploratory Research on ML/DL/AIaaS</title>
+      <link>https://blog.aaanh.com/posts/exploratory-research-on-mlaas/</link>
+      <pubDate>Thu, 30 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.aaanh.com/posts/exploratory-research-on-mlaas/</guid>
+      <description>There are so many of them out there 😱</description>
+      <content>&lt;blockquote&gt;
+&lt;p&gt;This post is adapted on my internal report #1 and #2, as part of my research group efforts in studying and developing machine learning processes, frameworks, and knowledge base. In addition to the adaptation of the report, I add further context for general viewership comprehension.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;background&#34;&gt;Background&lt;/h2&gt;
+&lt;p&gt;Starting around end of May, I picked up a project pitch from my research professor. This &amp;ldquo;mini&amp;rdquo; project originally entailed benchmarking or finding a way to benchmark Machine-Learning-as-a-Service platforms. Some examples of these platforms were given: &lt;a href=&#34;https://aws.amazon.com/sagemaker/&#34;&gt;SageMaker&lt;/a&gt; by Amazon &lt;a href=&#34;https://cloud.google.com/vertex-ai&#34;&gt;Vertex AI&lt;/a&gt; by Google, &lt;a href=&#34;https://azure.microsoft.com/en-us/services/machine-learning/&#34;&gt;AzureML&lt;/a&gt; by Microsoft, &lt;a href=&#34;https://www.ibm.com/cloud/watson-studio&#34;&gt;Watson&lt;/a&gt; by IBM. With those examples in mind, I began to survey the Platform-as-a-Service scenery in search for similar services.&lt;/p&gt;
+&lt;h2 id=&#34;expected-outcomes&#34;&gt;Expected Outcomes&lt;/h2&gt;
+&lt;p&gt;We cannot really kick-start the research process without a certain goal in mind. Even though such goal might be vague, it still allows us to form a direction and enumerate the areas we want to look into.&lt;/p&gt;
+&lt;p&gt;For this project, my immediate goal is to gather as much information about these platforms as possible and form a report. My report would include the observed characteristics of the surveyed platforms and build a comprehensive comparison system between the platforms on the features that they offer.&lt;/p&gt;
+&lt;p&gt;I soon realize that this is not a small project as it now turns out to be. But the initial project startup did provoke lots of discussions and thoughts into the premise of cloud-based machine learning processes.&lt;/p&gt;
+&lt;h2 id=&#34;tasks&#34;&gt;Tasks&lt;/h2&gt;
+&lt;p&gt;Based on the expected outcomes, I devised the following tasks to better anchor my evaluation process and to provide a better idea on what data to gather.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Shortlist the platforms to assess
+&lt;ul&gt;
+&lt;li&gt;Taxonomy of platforms providing AI/ML services&lt;/li&gt;
+&lt;li&gt;Categorize all existing platforms&lt;/li&gt;
+&lt;li&gt;Analyze CI/CD pipelines offered&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Analyze existing scientific literatures (attached in References)&lt;/li&gt;
+&lt;li&gt;Choose datasets and models for benchmark&lt;/li&gt;
+&lt;li&gt;Evaluate UX from data ingress, model training, inference, and interpret results&lt;/li&gt;
+&lt;li&gt;(If possible) Automate model training for statistical iterations&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;But before getting to those tasks, we will need to understand some concepts first&amp;hellip;&lt;/p&gt;
+&lt;h2 id=&#34;machine-learning-operations-mlops&#34;&gt;Machine Learning Operations (MLOps)&lt;/h2&gt;
+&lt;h3 id=&#34;state-of-the-union&#34;&gt;State of the Union&lt;/h3&gt;
+&lt;p&gt;MLOps recently massively exploded in popularity. It is not exactly something new for the industry professionals (this is my own claim); however, for the general populace, the term experiences a huge buzz. My conjection is that the process described in MLOps literatures has always been extensively used and constantly improved by the engineers working on such project. Only now, that it is being recognized with a de facto name brings much attention. With such attention, academia and newbies in the field are pouring increased effort in researching and further pushing the boundaries of MLOps.&lt;/p&gt;
+&lt;h3 id=&#34;what-is-mlops&#34;&gt;What is MLOps?&lt;/h3&gt;
+&lt;h4 id=&#34;more-background&#34;&gt;MORE background&lt;/h4&gt;
+&lt;p&gt;What is it exactly? To explain this, we need to go back to the basic building blocks of machine learning (ML).&lt;/p&gt;
+&lt;p&gt;In layman&amp;rsquo;s terms, ML involves developing a prediction system that makes use of historical data. From a high-level standpoint, this prediction system relies on cleverly designed algorithms to take in the input data and spew out result. This result can either be some raw values that need to be aggregated first or direct predictive values that are readily actionable.&lt;/p&gt;
+&lt;p&gt;$known_ data \rightarrow ML\ system \rightarrow predictive_ data $&lt;/p&gt;
+&lt;p&gt;These algorithms perform pattern recognition. For example, in the case of a linearly distributed 2D dataset, the algorithm that fits the curve is linear regression (like this image with random values below).&lt;/p&gt;
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;h4 id=&#34;machine-learning-operations&#34;&gt;Machine Learning Operations&lt;/h4&gt;
+&lt;p&gt;Ok, imagine DevOps, but in the context of machine learning.&lt;/p&gt;
+&lt;p&gt;On a more serious note, MLOps is more or less relying on the same principles and processes of DevOps. The lifecycle of one or many ML models from raw data to training to deployment for production use is broken down into more tangible steps and tasks to act as a banner of guidance for an engineering team when they want to put ML into real-world applications and services.&lt;/p&gt;
+&lt;p&gt;While it is a thought-provoking discipline, MLOps needs &lt;a href=&#34;https://www.goodreads.com/book/show/60715378-designing-machine-learning-systems?utm_medium=api&amp;amp;utm_source=author_widget&#34;&gt;a whole book&lt;/a&gt; (maybe even several) to properly be explained, by industry professionals (like through &lt;a href=&#34;https://www.coursera.org/learn/introduction-to-machine-learning-in-production&#34;&gt;a course&lt;/a&gt;), not by an apprentice on a blog post 😜.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;What does this MLOps have to do with MLaaS?&lt;/strong&gt; &amp;gt; — Well, I&amp;rsquo;m glad you ask.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;MLaaS providers heavily employ the concept of MLOps in order to build up their machine learning service on the cloud platform. We&amp;rsquo;ll get into this another blog post to be concise.&lt;/p&gt;
+&lt;h2 id=&#34;research-questions&#34;&gt;Research Questions&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Based on what features and metrics do we measure a platform?
+&lt;ol&gt;
+&lt;li&gt;And which features must be excluded? And why?&lt;/li&gt;
+&lt;li&gt;What features are must-have?&lt;/li&gt;
+&lt;li&gt;Is it necessary to apply weights for features? And How?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;How can we formulate a scoring system for these features?&lt;/li&gt;
+&lt;li&gt;How the requirements from the datasets can be met?&lt;/li&gt;
+&lt;li&gt;How can such scoring system communicates pros and cons for the audience of this research project?&lt;/li&gt;
+&lt;li&gt;How can we ensure our assessments and benchmarks themselves free from bias?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;expected-contribution-to-the-field&#34;&gt;Expected Contribution to the field&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;To form a numerical evaluation framework to evaluate MLaaS platforms&lt;/li&gt;
+&lt;li&gt;To better understand how different MLaaS platforms best fit an ML workflow and tasks&lt;/li&gt;
+&lt;li&gt;To assess MLaaS platforms adaptability to different workloads&lt;/li&gt;
+&lt;li&gt;To evaluate usability, learning curve, explanability, and interpretability of model training process&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;existing-mlaas-providersplatforms&#34;&gt;Existing MLaaS Providers/Platforms&lt;/h2&gt;
+&lt;p&gt;My survey into MLaaS platforms yielded a non-exhaustive list of providers as detailed in the proceeding table. It is to be noted that the table does not contain &lt;strong&gt;ALL&lt;/strong&gt; of existing providers. The enumeration of currently available ones is a never-ending task as every now and then a new platform is created.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;EC2 (AWS)&lt;/td&gt;
+&lt;td&gt;WhyLabs.ai&lt;/td&gt;
+&lt;td&gt;Obviously&lt;/td&gt;
+&lt;td&gt;Vertex AI (GCP)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Compute Engine (GCP)&lt;/td&gt;
+&lt;td&gt;Hasty.ai&lt;/td&gt;
+&lt;td&gt;Skyl.ai&lt;/td&gt;
+&lt;td&gt;Azure ML&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Virtual Machines (Azure)&lt;/td&gt;
+&lt;td&gt;Pega.ai&lt;/td&gt;
+&lt;td&gt;MLJAr&lt;/td&gt;
+&lt;td&gt;SageMaker (AWS)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Linode&lt;/td&gt;
+&lt;td&gt;Jasper.ai&lt;/td&gt;
+&lt;td&gt;Teachable Machine&lt;/td&gt;
+&lt;td&gt;Baidu ML&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;DigitalOcean&lt;/td&gt;
+&lt;td&gt;DataRobot.com&lt;/td&gt;
+&lt;td&gt;Lobe&lt;/td&gt;
+&lt;td&gt;IBM Watson&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Virtual Servers (IBM)&lt;/td&gt;
+&lt;td&gt;Clarifai.com&lt;/td&gt;
+&lt;td&gt;RunwayML&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Cloud Compute (Baidu)&lt;/td&gt;
+&lt;td&gt;MonkeyLearn.com&lt;/td&gt;
+&lt;td&gt;Lityx&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Compute Services (Oracle)&lt;/td&gt;
+&lt;td&gt;Akkio.com&lt;/td&gt;
+&lt;td&gt;Idiomatic&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Elastic Computing (Alibaba)&lt;/td&gt;
+&lt;td&gt;Levity&lt;/td&gt;
+&lt;td&gt;Reveal&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;In my own reasoning, the list includes compute engine and virtual private server providers because, technically, you can build a fully managed and customized MLaaS-like platform using such infrastructure. But, after lengthy discussing with the research group, I have abandoned such idea because we want to narrow down the evaluation scope.&lt;/p&gt;
+&lt;h2 id=&#34;observations&#34;&gt;Observations&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Commonalities:
+&lt;ul&gt;
+&lt;li&gt;Code workspace integration (similar to Google Colab)&lt;/li&gt;
+&lt;li&gt;Data storage&lt;/li&gt;
+&lt;li&gt;Model caching and saving&lt;/li&gt;
+&lt;li&gt;In the end, price is scaled with the flux of data and/or runtime&lt;/li&gt;
+&lt;li&gt;Offer CI/CD pipelines&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Differences:
+&lt;ul&gt;
+&lt;li&gt;Pricing&lt;/li&gt;
+&lt;li&gt;UI/UX&lt;/li&gt;
+&lt;li&gt;Complimentary service variety&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;pricing-models&#34;&gt;Pricing Models&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Pricing models for each platform are very dynamic and specific to the ML task. Here are 3 examples:
+&lt;ul&gt;
+&lt;li&gt;Vertex AI (GCP) divides into 4 categories: image data, video data, tabular data, text data. Then each category is divided into specific ops, e.g. training, deployment, batch prediction.&lt;/li&gt;
+&lt;li&gt;Azure ML (Microsoft) pricing is based on the type of compute nodes, plus other infrastructural services, e.g. data warehouse, analytical insights, = container registry, etc.&lt;/li&gt;
+&lt;li&gt;AWS SageMaker (Amazon) similar to Azure ML which bases its costs on infrastructure (or instances) usage.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;After lengthy discussion with the group and the professor, we have realized that the current approach would be too broad to lead to tangible and meaningful results. In order to continue, I would need to go back to the drawing board, find published and peer-reviewed literatures in the domain. Completing this should give me and the group a better idea of what is missing in the field of MLaaS.&lt;/p&gt;
+&lt;p&gt;With that, we shall further discuss papers in my next post and go through some practical examples of MLOps and MLaaS implementations.&lt;/p&gt;
+</content>
+    </item>
+    
+  </channel>
+</rss>

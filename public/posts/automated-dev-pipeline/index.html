@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>Automated Development Pipeline :: Anh&#39;s Tech Blog</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Allows room for periodical laziness." />
+<meta name="keywords" content="" />
+<meta name="robots" content="noodp" />
+
+<link rel="canonical" href="https://blog.aaanh.com/posts/automated-dev-pipeline/" />
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="https://blog.aaanh.com/styles.css">
+
+
+
+
+
+
+
+  <link rel="shortcut icon" href="https://blog.aaanh.com/img/theme-colors/green.png">
+  <link rel="apple-touch-icon" href="https://blog.aaanh.com/img/theme-colors/green.png">
+
+
+
+<meta name="twitter:card" content="summary" />
+
+  
+    <meta name="twitter:site" content="" />
+  
+    <meta name="twitter:creator" content="" />
+
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Automated Development Pipeline">
+<meta property="og:description" content="Allows room for periodical laziness." />
+<meta property="og:url" content="https://blog.aaanh.com/posts/automated-dev-pipeline/" />
+<meta property="og:site_name" content="Anh&#39;s Tech Blog" />
+
+  
+    <meta property="og:image" content="https://blog.aaanh.com/img/favicon/green.png">
+  
+
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="627">
+
+
+  <meta property="article:published_time" content="2021-12-28 20:30:00 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body class="green">
+
+
+<div class="container center headings--one-size">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    Anh&#39;s Tech Blog
+  </div>
+</a>
+
+    </div>
+    
+      <ul class="menu menu--mobile">
+  <li class="menu__trigger">Menu&nbsp;▾</li>
+  <li>
+    <ul class="menu__dropdown">
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+        
+          <li><a href="/tags">Tags</a></li>
+        
+      
+      
+    </ul>
+  </li>
+</ul>
+
+    
+    
+  </div>
+  
+  <nav class="navigation-menu">
+  <ul class="navigation-menu__inner menu--desktop">
+    
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+        
+          <li><a href="/tags">Tags</a></li>
+        
+      
+      
+    
+  </ul>
+</nav>
+
+  
+  <div class="author">
+    
+    Created by&nbsp;<a href="https://aaanh.ca">Anh Hoang Nguyen</a> <img src="https://avatars.githubusercontent.com/u/37283437?v=4" width="128px" height="128px"> |&nbsp;<a href="https://github.com/aaanh/blog">Github</a>&nbsp;|&nbsp;<a href="https://twitter.com/aaaaaaaaaanh">Twitter</a>
+  </div>
+</header>
+
+
+  <div class="content">
+    
+<article class="post">
+  <h1 class="post-title">
+    <a href="https://blog.aaanh.com/posts/automated-dev-pipeline/">Automated Development Pipeline</a>
+  </h1>
+  <div class="post-meta">
+    
+      <time class="post-date">
+        2021-12-28 ::
+        
+      </time>
+    
+    
+    
+  </div>
+
+  
+    <span class="post-tags">
+      
+      #<a href="https://blog.aaanh.com/tags/ci/">ci</a>&nbsp;
+      
+      #<a href="https://blog.aaanh.com/tags/cd/">cd</a>&nbsp;
+      
+      #<a href="https://blog.aaanh.com/tags/github/">github</a>&nbsp;
+      
+      #<a href="https://blog.aaanh.com/tags/actions/">actions</a>&nbsp;
+      
+      #<a href="https://blog.aaanh.com/tags/automation/">automation</a>&nbsp;
+      
+    </span>
+  
+  
+
+
+  
+    <div class="table-of-contents">
+      <h2>
+        Table of Contents
+      </h2>
+      <nav id="TableOfContents"></nav>
+    </div>
+  
+
+  <div class="post-content"><div>
+        <p>I have successfully taken the first steps towards automating my development process. The automated process is applied to 2 projects, 1 of which is my own unix wiki publicly available at <a href="https://githuh.com/aaanh/linux-docs">https://githuh.com/aaanh/linux-docs</a> with its homepage at <a href="https://unix.hoanganh.tech">https://unix.hoanganh.tech</a>, while the other one is a private wiki project and therefore not exposed to public network.</p>
+<p>The primitive automation relies on Github Actions. Once a new commit or a feature branch is merged into the production branch, Github Actions will be triggered and it will spin up a build environment that is specified in the <code>./github/workflows/main.yml</code> file. I will talk only about the process for the public wiki project but the private project follows somewhat the same principals.</p>
+<p>The unix wiki is hosted on a Ubuntu server on Linode, so the first hurdle to overcome is how to &ldquo;sync&rdquo; new changes to the server with just the event of pushing new commits to the production branch. Luckily for me, features and functions within this space of technology have developed enough to let me have my ways without much hassle.</p>
+<p>The wiki site is built using the sphinx-doc tool that can generate static webpages completed with table of contents and hyperlinks from markdown sources, while incorporating theming and other features using <code>pip</code> modules. So, the process would look something like:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>local changes &gt; push to origin &gt; github actions voodoo to build &gt; &#34;sync&#34; build results to /var/www/... on the Ubuntu server.
+</span></span></code></pre></div><p>Github Actions shares similarity with docker in terms of configurations so writing a config file for the build process is not that difficult. Github Actions is actually the 3rd option that I tried, after Cloudflare Pages and Vercel. For some reasons, Pages and Vercel build configs and environment (presumedly, debian-based) do not have what is needed to build sphinxd-docs. In addition, the restrictive nature and non-granularity of the configs prevents me to properly debug the failed builds. Therefore, I finally land myself at Github Actions (hereforth referred to as Actions).</p>
+<p>As said before, Actions functions similar to a docker container. Therefore, I need to specify what image to load and the Ubuntu image works perfectly because it features an environment and a package manager that I am confident with. Below is the content of the <code>.yml</code> file for better visualization:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#75715e"># This is a basic workflow to help you get started with Actions</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">name</span>: <span style="color:#ae81ff">CI</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Controls when the workflow will run</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">on</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Triggers the workflow on push or pull request events but only for the master branch</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">push</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">branches</span>: [<span style="color:#ae81ff">prod]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Allows you to run this workflow manually from the Actions tab</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">workflow_dispatch</span>:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># A workflow run is made up of one or more jobs that can run sequentially or in parallel</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">jobs</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># This workflow contains a single job called &#34;build&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">build</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># The type of runner that the job will run on</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">runs-on</span>: <span style="color:#ae81ff">ubuntu-latest</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Steps represent a sequence of tasks that will be executed as part of the job</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">steps</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Install SSH Key</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">shimataro/ssh-key-action@v2</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">with</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">key</span>: <span style="color:#ae81ff">${{ secrets.LINUXHOANGANHTECH }}</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">known_hosts</span>: <span style="color:#e6db74">&#39;placeholder&#39;</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Adding server to known_hosts</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">run</span>: <span style="color:#ae81ff">ssh-keyscan -H ${{ secrets.SSH_HOST }} &gt;&gt; ~/.ssh/known_hosts</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Checkout repo code</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">actions/checkout@v2</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Install Sphinx</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">run</span>: <span style="color:#ae81ff">sudo apt install python3-sphinx</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Install pip</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">run</span>: <span style="color:#ae81ff">sudo apt install python3-pip</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Install pip dependencies</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">run</span>: <span style="color:#ae81ff">python3 -m pip install -r requirements.txt</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Generate build with sphinx</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">run</span>: <span style="color:#ae81ff">make html</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Rsync to server</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">run</span>: <span style="color:#ae81ff">rsync -avz ./build/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/var/www/html/build/</span>
+</span></span></code></pre></div><p>The build steps are easily constructed as a line by line bash script and each steps can be further described with a name and that name is echoed during the build for better debugging insights. Here is a run through of the how the process works:</p>
+<ol>
+<li>Pre-configs: build environment secrets are added to Actions: ssh-key, IP address, pathing on the server, and other credentials.</li>
+<li>The seceret SSH key is installed by using an action I found on the marketplace. This key is used to, you&rsquo;ve guessed it, establish an SSH connection with the host server.</li>
+<li>The repo code is then checked out.
+<ul>
+<li>Note that it is not the same as cloning the repo into the build environment.</li>
+</ul>
+</li>
+<li>The build dependencies are installed through <code>apt</code> and <code>pip</code>.</li>
+<li>The <code>make</code> command is run to generate the static site files.</li>
+<li>Rsync is used to transfer the build files to the host server directly through the <code>ssh</code> connection to its public IP address on Linode.
+<ul>
+<li>Note that this public IP is also added as environment secret and site is actually proxied through Cloudflare.</li>
+</ul>
+</li>
+</ol>
+<p>And that is the end of the process. Originally, I have wished for it to be this way for a long time already but only now do I have the capacity, knowledge and time, to finally set up the very basic pipeline.</p>
+
+      </div></div>
+
+  
+    
+<div class="pagination">
+    <div class="pagination__title">
+        <span class="pagination__title-h">Read other posts</span>
+        <hr />
+    </div>
+    <div class="pagination__buttons">
+        
+        <span class="button previous">
+            <a href="https://blog.aaanh.com/posts/security-or-convenience/">
+                <span class="button__icon">←</span>
+                <span class="button__text">Security or Convenience</span>
+            </a>
+        </span>
+        
+        
+        <span class="button next">
+            <a href="https://blog.aaanh.com/posts/windows-11-beta-postmortum/">
+                <span class="button__text">I&#39;m officially done with Windows 11</span>
+                <span class="button__icon">→</span>
+            </a>
+        </span>
+        
+    </div>
+</div>
+
+  
+
+  
+    
+
+  
+</article>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright">
+        <span>© 2023 Powered by <a href="http://gohugo.io">Hugo</a></span>
+    
+      <span>:: <a href="https://github.com/panr/hugo-theme-terminal" target="_blank">Theme</a> made by <a href="https://github.com/panr" target="_blank">panr</a></span>
+      </div>
+  </div>
+</footer>
+
+
+
+
+
+
+<script type="text/javascript" src="/bundle.min.js"></script>
+
+
+
+
+
+  
+</div>
+
+</body>
+</html>

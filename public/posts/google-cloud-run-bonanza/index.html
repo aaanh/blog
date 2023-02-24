@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>Google Cloud Platform Bonanza - Cloud Run :: Anh&#39;s Tech Blog</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Why do you have to be this way?" />
+<meta name="keywords" content="" />
+<meta name="robots" content="noodp" />
+
+<link rel="canonical" href="https://blog.aaanh.com/posts/google-cloud-run-bonanza/" />
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="https://blog.aaanh.com/styles.css">
+
+
+
+
+
+
+
+  <link rel="shortcut icon" href="https://blog.aaanh.com/img/theme-colors/green.png">
+  <link rel="apple-touch-icon" href="https://blog.aaanh.com/img/theme-colors/green.png">
+
+
+
+<meta name="twitter:card" content="summary" />
+
+  
+    <meta name="twitter:site" content="" />
+  
+    <meta name="twitter:creator" content="" />
+
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Google Cloud Platform Bonanza - Cloud Run">
+<meta property="og:description" content="Why do you have to be this way?" />
+<meta property="og:url" content="https://blog.aaanh.com/posts/google-cloud-run-bonanza/" />
+<meta property="og:site_name" content="Anh&#39;s Tech Blog" />
+
+  
+    <meta property="og:image" content="https://blog.aaanh.com/img/favicon/green.png">
+  
+
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="627">
+
+
+  <meta property="article:published_time" content="2022-07-02 00:30:00 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body class="green">
+
+
+<div class="container center headings--one-size">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    Anh&#39;s Tech Blog
+  </div>
+</a>
+
+    </div>
+    
+      <ul class="menu menu--mobile">
+  <li class="menu__trigger">Menu&nbsp;▾</li>
+  <li>
+    <ul class="menu__dropdown">
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+        
+          <li><a href="/tags">Tags</a></li>
+        
+      
+      
+    </ul>
+  </li>
+</ul>
+
+    
+    
+  </div>
+  
+  <nav class="navigation-menu">
+  <ul class="navigation-menu__inner menu--desktop">
+    
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+        
+          <li><a href="/tags">Tags</a></li>
+        
+      
+      
+    
+  </ul>
+</nav>
+
+  
+  <div class="author">
+    
+    Created by&nbsp;<a href="https://aaanh.ca">Anh Hoang Nguyen</a> <img src="https://avatars.githubusercontent.com/u/37283437?v=4" width="128px" height="128px"> |&nbsp;<a href="https://github.com/aaanh/blog">Github</a>&nbsp;|&nbsp;<a href="https://twitter.com/aaaaaaaaaanh">Twitter</a>
+  </div>
+</header>
+
+
+  <div class="content">
+    
+<article class="post">
+  <h1 class="post-title">
+    <a href="https://blog.aaanh.com/posts/google-cloud-run-bonanza/">Google Cloud Platform Bonanza - Cloud Run</a>
+  </h1>
+  <div class="post-meta">
+    
+      <time class="post-date">
+        2022-07-02 ::
+        
+      </time>
+    
+    
+    
+  </div>
+
+  
+    <span class="post-tags">
+      
+      #<a href="https://blog.aaanh.com/tags/serverless/">serverless</a>&nbsp;
+      
+      #<a href="https://blog.aaanh.com/tags/gcp/">gcp</a>&nbsp;
+      
+      #<a href="https://blog.aaanh.com/tags/cloud-run/">cloud-run</a>&nbsp;
+      
+      #<a href="https://blog.aaanh.com/tags/firebase/">firebase</a>&nbsp;
+      
+      #<a href="https://blog.aaanh.com/tags/devops/">devops</a>&nbsp;
+      
+      #<a href="https://blog.aaanh.com/tags/docker/">docker</a>&nbsp;
+      
+      #<a href="https://blog.aaanh.com/tags/container/">container</a>&nbsp;
+      
+      #<a href="https://blog.aaanh.com/tags/networking/">networking</a>&nbsp;
+      
+    </span>
+  
+  
+
+
+  
+    <div class="table-of-contents">
+      <h2>
+        Table of Contents
+      </h2>
+      <nav id="TableOfContents"></nav>
+    </div>
+  
+
+  <div class="post-content"><div>
+        <blockquote>
+<p>Curse-loaded rant alert.</p>
+</blockquote>
+<h1 id="introduction">Introduction<a href="#introduction" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h1>
+<p><a href="https://cloud.google.com">Google Cloud Platform</a> is Google&rsquo;s the direct competitor to <a href="azure.com">Microsoft Azure</a> and <a href="https://aws.amazon.com">Amazon AWS</a>. Among the services GCP offers is the Cloud Run API. Cloud Run hosts containerized applications, APIs, and microservices while being jam-packed with features like security, access control, port forwarding, loggings, and etc.</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->
+<em>Fig 1. The dashboard of a deployed Cloud Run project</em></p>
+<p>The Cloud Run service and platform are able to differentiate themselves from the others by offering a relatively modern and clean console which helps a lot with navigating through the options and functionalities. Compared to GCP, AWS and Azure seem clunky and the UI flow does not offer a clear path for a developer to deploy their projects. Most importantly, when enabling these services, AWS and Azure have complicated billing account assignment that just throws the user off track.</p>
+<h1 id="the-spiral-into-despair-begins">The spiral into despair begins<a href="#the-spiral-into-despair-begins" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h1>
+<p>But Cloud Run is not without its own flaws. Very annoying ones at that. In my use case, I have a container of a Fresh Deno app (you can visit it <a href="https://fresh.hoanganh.dev">here</a>) that I want to deploy with Cloud Run. It is web application framework that uses Deno (instead of node) as its runtime. Other than that, it is basically a single-page application. I started by building my container image locally and tagging with the proper scheme. Then, I used the <code>gcloud</code> CLI to integrate the Google Container Registry with Docker so that when I push an image with the correct tagging scheme, it will be pushed to the registry without much overhead of managing accesses and tokens. Smooth sailing so far.</p>
+<p>After it has been uploaded to the registry, I can use the Cloud Run API console to deploy the container. With the default options set, unauthenticated web access granted, and proper port forwarded, off the service goes. First thing, there is no way to see what the API is doing with the image. The log verbosity is non-existent and the log tab is only for operational logs. So, no actual progress bar whatsoever and you would need to have your fingers crossed that nothing goes wrong. This happened to me the last time when I tried to deploy my <a href="https://unix.hoanganh.dev">Unix documentation site</a>. The deployment went under and I did not know why because the error message was simply a build error because of unsupported architecture. After doing differential testings, I was able to isolate that the problem was due to the base image architecture. See, I was using my M1 MacBook to build and push the image so the base Ubuntu image was on ARM64 architecture. This was subsequently solved by going over the process on my x64 machine.</p>
+<p>Second, there is an option to assign a custom domain to the deployed container and this step is also a major pain. While the assignment of the custom domain went quickly enough, the lack of observability on the progresss is absolutely nerve-wracking due to the undesirably slow DNS propagation and SSL certificate generation. Mind you that I use Cloudflare. So, in my quest to find a better way to do custom domain (because the default <code>*.web.app</code> is <em>kinda</em> hard to remember 🤡), I stumbled upon Firebase hosting with redirection.</p>
+<h1 id="firebase-kinda-sucks-now">Firebase kinda sucks now<a href="#firebase-kinda-sucks-now" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h1>
+<p>Now, Firebase is a seemingly separated service component from all the over GCP stuff. But you can connect Firebase to your GCP project. BUT. I didn&rsquo;t know that was a thing, so I naively created a new project with the hope of being able to redirect to the container service of another project 🤡. Fumbled around a while, I managed to connect the GCP project of the deployed container to Firebase, but then it automatically upgraded the plan to the Blaze paid plan because &ldquo;extend to use Google Cloud Platform resources&rdquo; for whatever reasons. Well, ok, fine, I can live with that as long as the process takes less time. Boy, was I wrong, as I could not implement the redirection even though I followed the documentations and referenced other deeply nested docs.</p>
+<p>All right, I give up. Let&rsquo;s abandon this and disable the Firebase then. Google says, &ldquo;Fuck no.&rdquo; This project is now permanently attached to the Firebase shit and there are no options to detach. I attempted to downgrade the Firebase to the free plan with hope that it would do the trick only to have it RE-ENABLED automatically by the system. At this point, the last thing to do is to delete the project from Firebase console and you&rsquo;d think that is &ldquo;da wey&rdquo; right? Fuck no, again, you silly goof. Delete the project from Firebase also means your whole Google Cloud Platform project would be deleted. Trying to get support for this shit doesn&rsquo;t work because it is not available for the basic tier support 🤡.</p>
+<blockquote>
+<p>THE FUCK SHIT IS THIS?
+I <em>calmly</em> asked myself and Google.</p>
+</blockquote>
+<h1 id="last-ditch-efforts">Last ditch efforts<a href="#last-ditch-efforts" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h1>
+<p>Ok, whatever, then I&rsquo;ll just remove the service accounts in IAM. Wrong again, idiot with a foolish ambition. Removing those automatically created service accounts also somehow messed up the whole Cloud Run API access permissions. Now, I can&rsquo;t even create a new deployment from the web console nor deploy a revision of the containerized app. Trying to solve this via the IAM console is another pain. Google in its infinite engineering wisdom does not provide a clear way of how administrators can manage access of default service agents and their roles. After 1-1.5 hour of reading docs, forums, community pages, I gave up and had to disable the whole API, losing all of my work, and start over.</p>
+<h1 id="resolution">Resolution<a href="#resolution" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h1>
+<p>Starting over actually did the trick. The access policies were restored and I was able to re-deploy everything through the web console. HOWEVER, IT DID NOT HAVE TO BE THIS WAY. The time and effort cost was simply unjustified for such simple administrative operation. And it is not like the service is free or anything, I (will) pay for whatever I am consuming, so the shitty docs and non-existent support can go fuck themselves. Twice. Google engineering might be the best, but the customer service and business relation is clearly dogshit. If anything, I will probably sell my soul to Microsoft in the future.</p>
+
+      </div></div>
+
+  
+    
+<div class="pagination">
+    <div class="pagination__title">
+        <span class="pagination__title-h">Read other posts</span>
+        <hr />
+    </div>
+    <div class="pagination__buttons">
+        
+        <span class="button previous">
+            <a href="https://blog.aaanh.com/posts/holocure-save-file/">
+                <span class="button__icon">←</span>
+                <span class="button__text">Holocure Save File Restore</span>
+            </a>
+        </span>
+        
+        
+        <span class="button next">
+            <a href="https://blog.aaanh.com/posts/exploratory-research-on-mlaas/">
+                <span class="button__text">Initiate Exploratory Research on ML/DL/AIaaS</span>
+                <span class="button__icon">→</span>
+            </a>
+        </span>
+        
+    </div>
+</div>
+
+  
+
+  
+    
+
+  
+</article>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright">
+        <span>© 2023 Powered by <a href="http://gohugo.io">Hugo</a></span>
+    
+      <span>:: <a href="https://github.com/panr/hugo-theme-terminal" target="_blank">Theme</a> made by <a href="https://github.com/panr" target="_blank">panr</a></span>
+      </div>
+  </div>
+</footer>
+
+
+
+
+
+
+<script type="text/javascript" src="/bundle.min.js"></script>
+
+
+
+
+
+  
+</div>
+
+</body>
+</html>

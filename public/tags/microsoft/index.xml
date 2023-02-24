@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>microsoft on Anh&#39;s Tech Blog</title>
+    <link>https://blog.aaanh.com/tags/microsoft/</link>
+    <description>Recent content in microsoft on Anh&#39;s Tech Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 12 Feb 2023 18:30:00 +0000</lastBuildDate><atom:link href="https://blog.aaanh.com/tags/microsoft/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Migrating from Google Workspace to Microsoft 365</title>
+      <link>https://blog.aaanh.com/posts/migrating-google-microsoft/</link>
+      <pubDate>Sun, 12 Feb 2023 18:30:00 +0000</pubDate>
+      
+      <guid>https://blog.aaanh.com/posts/migrating-google-microsoft/</guid>
+      <description>Unironically a better solution from the lesser evil.</description>
+      <content>&lt;h2 id=&#34;background&#34;&gt;Background&lt;/h2&gt;
+&lt;p&gt;Around April 2021, I created my Google Workspace account and subscribed to the Business Standard plan which cost 15.60 CAD per user per month. The offerings that I sought after the most were:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Custom email domain&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;2 TB&lt;/code&gt; of storage per user&lt;/li&gt;
+&lt;li&gt;and&amp;hellip; I think that&amp;rsquo;s all&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The Google productivity suite is already good enough on my Google One subscribed personal account, so it did not really affect my choice of cloud platform that much. Although the unlimited Google Meet with 150 participants sounds good on paper, in reality, I did not and have not touched it, bar 2 - 3 times for student club meetings.&lt;/p&gt;
+&lt;p&gt;Given the majority of email users nowadays use Google Mail as their provider, one positive note is that the interactions between users are quite smooth in terms of file sharing on Google Drive, which comes with every account.&lt;/p&gt;
+&lt;p&gt;In the beginning of 2022, I switched from the Business Standard plan to the Business Starter plan which cost half the price per month to reduce my spending and in anticipation for the very near-coming market stagnation. This comes with a major reduction for the Drive capacity per user, from &lt;code&gt;2 TB&lt;/code&gt; to a meager &lt;code&gt;30 GB&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Prior to my migration to Microsoft 365 today, there are 3 domains with multiple aliases on Google Workspace.&lt;/p&gt;
+&lt;p&gt;After researching the plans offered on Microsoft 365, I have concluded that the benefits of M365 over Workspace.&lt;/p&gt;
+&lt;h2 id=&#34;rationale&#34;&gt;Rationale&lt;/h2&gt;
+&lt;h3 id=&#34;costs-before-tax-in-canadian-dollars&#34;&gt;Costs (before tax, in Canadian Dollars)&lt;/h3&gt;
+&lt;p&gt;Google Workspace (GWS) Business Starter: 7.80 per User per Month&lt;/p&gt;
+&lt;p&gt;Microsoft365 (M365) Business Basic: 6.00 per User per Month&lt;/p&gt;
+&lt;h3 id=&#34;offerings-cheapest-plan&#34;&gt;Offerings (cheapest plan)&lt;/h3&gt;
+&lt;p&gt;These are the offerings that matter to me the most.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Be warned: These are mostly L&amp;rsquo;s for Google&amp;hellip;&lt;/em&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Google&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;M365&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Email Domain&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Yes&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Yes&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Email Storage&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Part of Cloud Storage&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;50 GB&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Email Aliases (diff. domains)&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Yes (&lt;code&gt;&amp;lt;=&lt;/code&gt; 50)&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Yes (&lt;code&gt;&amp;lt;=&lt;/code&gt; 400)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Cloud Storage&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;30 GB&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;1 TB&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Productivity Suite Type&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Web&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Web&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Productivity Suite&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;IYKYK&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Office is better, tbh&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;MFA&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Yes, any authenticator&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Yes, any auth, best with MSFT&amp;rsquo;s&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;MFA w. Security Key&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Yes&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Yes, but never shows&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;MFA w. Number Matching + Location&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;No&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Yes&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Collaboration (real-time, externally)&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;I&amp;rsquo;ll just use Google One&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;A lot to be desired&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Chat app&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Use Discord or Slack, dude&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Teams is so-so but best one out of them all&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Cloud Infra&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Google Cloud is a pain&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Azure is also a pain but manageable&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Support&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;😂&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;🤔&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Feature documentations&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;I hate them&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Usable&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h3&gt;
+&lt;p&gt;As you can see, M365 offers a lot more bang for your bucks at an even cheaper price, so it is completely logical to migrate out of GWS, saving 1.8 dollar a month towards my daily intake of coffee. Especially so when you look at the cloud storage of 1 TB versus a meagre 30 GB (that&amp;rsquo;s 33.33 times the amount of storage).&lt;/p&gt;
+&lt;p&gt;Unfortunately for Google, Microsoft has reached the pinnacle of economy of scale. Love or hate Microsoft and their way of collecting user information, it is certainly clear what the more economic choice is.&lt;/p&gt;
+&lt;p&gt;Another aspect to consider but I didn&amp;rsquo;t include because I thought it wouldn&amp;rsquo;t matter that much is Single Sign On (SSO) integration with third-party applications. Through what I could observe, there are more applications with Google SSO than those that have Microsoft. However, at the end of the day, there are ways to integrate your own domain SSO through APIs without first-party support (done by the application owner). So, unless it is a major inconvenience to you (lack of internal resource, fundings, etc.), I wouldn&amp;rsquo;t take that into consideration.&lt;/p&gt;
+&lt;h2 id=&#34;migration&#34;&gt;Migration&lt;/h2&gt;
+&lt;p&gt;The migration process is mostly performed on M365 Admin Center. Everything looked straightforward enough until it wasn&amp;rsquo;t and I think both parties (G and M) are to be blame.&lt;/p&gt;
+&lt;p&gt;The first-party migration tool on M365 Admin Center was simple to go through the steps. It involved creating a service account on Google Cloud that can manage Google Workspace in ELI5 terms. An M365 migration application is installed on Google Workspace to use the service account to perform the process. However, during the verification step of the service account&amp;rsquo;s permission, M365 keeps throwing error saying that there&amp;rsquo;s insufficient permission to continue. I had tried everything, going so far as to giving all the permissions I could get my hands on.&lt;/p&gt;
+&lt;p&gt;Post-mortem-ly, Google&amp;rsquo;s way of managing the service accounts is too confusing and I was in deeper than I had wanted, reading through countless docs and troubleshooting forum threads. Microsoft, on the other hand, could improve their toolings, but it does disclaim that the tool is still beta.&lt;/p&gt;
+&lt;p&gt;In the end, I had to manually migrate everything.&lt;/p&gt;
+&lt;h3 id=&#34;cloud-storage&#34;&gt;Cloud Storage&lt;/h3&gt;
+&lt;p&gt;This involved downloading the Google Drive data (9 GB total, doable) and exporting all my mails. Nothing to write home about.&lt;/p&gt;
+&lt;h3 id=&#34;emails&#34;&gt;Emails&lt;/h3&gt;
+&lt;p&gt;For the e-mails, they are exported as a single &lt;code&gt;.mbox&lt;/code&gt; file (all mails concatenated into a single file, including the header). This is widepsread file format on POSIX systems, so Google Mail does the right thing here. However, Microsoft Outlook does not support &lt;code&gt;.mbox&lt;/code&gt; file 😂 Why? Because it uses &lt;code&gt;.eml&lt;/code&gt; which is a format that is developed by Microsoft, duh. &lt;code&gt;.eml&lt;/code&gt; stores each mail in one file, though. Honestly, not that big of a deal, I imported the single &lt;code&gt;.mbox&lt;/code&gt; file to Thunderbird (bless Mozilla) and exported as &lt;code&gt;.eml&lt;/code&gt; files.&lt;/p&gt;
+&lt;h3 id=&#34;calendar&#34;&gt;Calendar&lt;/h3&gt;
+&lt;p&gt;Nothing special. Exported as &lt;code&gt;.ics&lt;/code&gt;, pretty standard. Outlook can read and import just fine.&lt;/p&gt;
+&lt;h3 id=&#34;documents&#34;&gt;Documents&lt;/h3&gt;
+&lt;p&gt;Because Drive doesn&amp;rsquo;t let you change ownership to users outside of the domain (a la my-personal-account), every document that I have shared so far to anyone must be manually uploaded to my personal account and re-shared. I made duplicates with my personal drive wherever I can, but I could only do damage control to an already sinking ship. I had to manually re-share the stuff.&lt;/p&gt;
+&lt;h2 id=&#34;2-weeks-use-review&#34;&gt;2 Weeks&amp;rsquo; Use Review&lt;/h2&gt;
+&lt;p&gt;At this point, I am very much used to Microsoft products and its Azure AD, so I am biased when I say that everything works perfectly fine so far. The ability to use the desktop Office version is a nice-to-have (with the first free month of trial) but not a necessity if all you do is what you would do with Google suite.&lt;/p&gt;
+&lt;p&gt;A caveat that I encountered during my domain transfer was that the Exchange Admin Center bugged out. Even though the DNS records had been added for 3 hours, Exchange would still not recognize the domains as authorized. Some of which are quite mission-critical which I transferred last because I could try with my other domains first while maintain the email available should anything be sent my way. I got impatient so I removed the domains that were pending and readded them through M365 Admin Center which did the trick.&lt;/p&gt;
+&lt;p&gt;After everything, I&amp;rsquo;d rate Google 6.5 out of 10, Microsoft 8.5 out of 10, migration process 3 out of 10. Would I recommend doing it? Probably not by yourself. Hire a certified professional to do it for you and save the headaches for a security breach or something.&lt;/p&gt;
+</content>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>First Code Competition :: Anh&#39;s Tech Blog</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="This post is going to be written in the style of an incident postmortem. :^)
+Overview Those who are in the dev scene probably know, to some extents, what competitive programming is. It is basically Leet Code on the highest purity crack. Each problem presented to the participants during the competition can said to be comprised of multiple Leet Code problems in the topics of algorithm, data structure, optimization, dynamic programming, so on and so forth." />
+<meta name="keywords" content="" />
+<meta name="robots" content="noodp" />
+
+<link rel="canonical" href="https://blog.aaanh.com/posts/productivity-and-operations/" />
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="https://blog.aaanh.com/styles.css">
+
+
+
+
+
+
+
+  <link rel="shortcut icon" href="https://blog.aaanh.com/img/theme-colors/green.png">
+  <link rel="apple-touch-icon" href="https://blog.aaanh.com/img/theme-colors/green.png">
+
+
+
+<meta name="twitter:card" content="summary" />
+
+  
+    <meta name="twitter:site" content="" />
+  
+    <meta name="twitter:creator" content="" />
+
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="First Code Competition">
+<meta property="og:description" content="This post is going to be written in the style of an incident postmortem. :^)
+Overview Those who are in the dev scene probably know, to some extents, what competitive programming is. It is basically Leet Code on the highest purity crack. Each problem presented to the participants during the competition can said to be comprised of multiple Leet Code problems in the topics of algorithm, data structure, optimization, dynamic programming, so on and so forth." />
+<meta property="og:url" content="https://blog.aaanh.com/posts/productivity-and-operations/" />
+<meta property="og:site_name" content="Anh&#39;s Tech Blog" />
+
+  
+    <meta property="og:image" content="https://blog.aaanh.com/img/favicon/green.png">
+  
+
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="627">
+
+
+  <meta property="article:published_time" content="2022-02-24 19:00:00 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body class="green">
+
+
+<div class="container center headings--one-size">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    Anh&#39;s Tech Blog
+  </div>
+</a>
+
+    </div>
+    
+      <ul class="menu menu--mobile">
+  <li class="menu__trigger">Menu&nbsp;▾</li>
+  <li>
+    <ul class="menu__dropdown">
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+        
+          <li><a href="/tags">Tags</a></li>
+        
+      
+      
+    </ul>
+  </li>
+</ul>
+
+    
+    
+  </div>
+  
+  <nav class="navigation-menu">
+  <ul class="navigation-menu__inner menu--desktop">
+    
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+        
+          <li><a href="/tags">Tags</a></li>
+        
+      
+      
+    
+  </ul>
+</nav>
+
+  
+  <div class="author">
+    
+    Created by&nbsp;<a href="https://aaanh.ca">Anh Hoang Nguyen</a> <img src="https://avatars.githubusercontent.com/u/37283437?v=4" width="128px" height="128px"> |&nbsp;<a href="https://github.com/aaanh/blog">Github</a>&nbsp;|&nbsp;<a href="https://twitter.com/aaaaaaaaaanh">Twitter</a>
+  </div>
+</header>
+
+
+  <div class="content">
+    
+<article class="post">
+  <h1 class="post-title">
+    <a href="https://blog.aaanh.com/posts/productivity-and-operations/">First Code Competition</a>
+  </h1>
+  <div class="post-meta">
+    
+      <time class="post-date">
+        2022-02-24 ::
+        
+      </time>
+    
+    
+    
+  </div>
+
+  
+    <span class="post-tags">
+      
+      #<a href="https://blog.aaanh.com/tags/competitive/">competitive</a>&nbsp;
+      
+      #<a href="https://blog.aaanh.com/tags/programming/">programming</a>&nbsp;
+      
+    </span>
+  
+  
+
+
+  
+    <div class="table-of-contents">
+      <h2>
+        Table of Contents
+      </h2>
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#overview">Overview</a></li>
+    <li><a href="#timeline">Timeline</a></li>
+    <li><a href="#action-items">Action Items</a></li>
+    <li><a href="#analysis">Analysis</a>
+      <ul>
+        <li><a href="#expectations">Expectations</a></li>
+        <li><a href="#result">Result</a></li>
+        <li><a href="#my-performance">My performance</a></li>
+        <li><a href="#what-i-learned-and-remediations-going-forward">What I learned and remediations going forward</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+  
+
+  <div class="post-content"><div>
+        <blockquote>
+<p>This post is going to be written in the style of an incident postmortem. <code>:^)</code></p>
+</blockquote>
+<h2 id="overview">Overview<a href="#overview" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>Those who are in the dev scene probably know, to some extents, what competitive programming is. It is basically Leet Code on the highest purity crack. Each problem presented to the participants during the competition can said to be comprised of multiple Leet Code problems in the topics of algorithm, data structure, optimization, dynamic programming, so on and so forth.</p>
+<p>Today, it was my first time participating in such a competition, virtually. It was Hash Code and organized by Google. I am proud to say that our team of three did not complete the challenge. But it was never about the end result, it always has been the friends we made along the way <code>:^)</code>.</p>
+<p>]The qualifier round is truly fitting of being a Google competition. Details of which can be read here <a href="https://codingcompetitions.withgoogle.com/hashcode">https://codingcompetitions.withgoogle.com/hashcode</a>. Not gonna lie, it was <em>really</em> hard. The competition presents a multi-faceted problem with a lot of aspects the solvers need to account for. And according to the Google engineer who organizes this year&rsquo;s HashCode in the post-round livestream, there is yet to be an optimal solution.</p>
+<h2 id="timeline">Timeline<a href="#timeline" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>Back to our team&rsquo;s performance during the qualifier round. Here is our timeline of the event with our progress. Note that all the timestamps are documented on <strong>2022-02-24</strong> and according to the <strong>EST</strong> timezone.</p>
+<ul>
+<li><code>11:45AM</code> I reserved a conference room for our physical collab space.</li>
+<li><code>12:00PM</code> Initial equipment and room setup completed.</li>
+<li><code>12:30PM</code> Hash Code 2022 Qualifier round started and I started problem comprehension while waiting for the rest of the team to arrive.</li>
+<li><code>12:45PM</code> The team was assembled and we debriefed the problem statement.</li>
+<li><code>01:30PM</code> Whiteboarded the data structure and started implementing while figuring out the problem goal.</li>
+<li><code>02:00PM</code> Partially completed input parsing code. Tested against example input and realized we overshot the line traversal.</li>
+<li><code>02:30PM</code> Completed input parsing code. Tested against all input sizes and types. Test completed without errors.</li>
+<li><code>02:45PM</code> Analyzing aspects of the problem: selecting important features, extracting and interpolating metrics, and building decision tree system.</li>
+<li><code>03:30PM</code> Analysis still in progress but a rough idea of how we should tackle the scheduling and optimizing was realized.</li>
+<li><code>03:45PM</code> Competition ended. We stayed for a bit to further explore edge cases and watched the post-round livestream to understand more of the real-life aspects and metadata of the problem.</li>
+</ul>
+<h2 id="action-items">Action Items<a href="#action-items" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Action Item</th>
+<th>Type</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Problem comprehension</td>
+<td>Holistic</td>
+<td>Partial</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Data Structure: OOP</td>
+<td>Input</td>
+<td>Done</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Data Parsing</td>
+<td>Input</td>
+<td>Done</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Optimize selection</td>
+<td>Logic</td>
+<td>Partial</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Optimize project order</td>
+<td>Logic</td>
+<td>Partial</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Incorporate skills into optimization</td>
+<td>Logic</td>
+<td>Not started</td>
+</tr>
+</tbody>
+</table>
+<h2 id="analysis">Analysis<a href="#analysis" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h3 id="expectations">Expectations<a href="#expectations" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>Upon reading the problem and estimating the complexity, we expected to at least be able to run the first example and output the first output correctly.</p>
+<h3 id="result">Result<a href="#result" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>We was not able to meet the expectations. But we managed to develop our ideas for tackling and optimizing the problem. Our tangible result was the developed data structure and input parsing logic.</p>
+<h3 id="my-performance">My performance<a href="#my-performance" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>The majority of the analysis will be on my own performance as I cannot speak for others.</p>
+<p>I am the weakest link in the team due to my lesser experience in the Leet Code scene and the competitive programming scene as compared to the other team members. My input to the comprehension progress needs further polishing in terminologies and presentation, as well as the speed at which I can deconstruct and organize various aspects of the coding challenge. The main contribution I made weighed in in terms of writing code and implementing the ideas we had developed so far at the time. Although, on that note, I would still need to improve my coding effiency and debugging skills.</p>
+<h3 id="what-i-learned-and-remediations-going-forward">What I learned and remediations going forward<a href="#what-i-learned-and-remediations-going-forward" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>Experience would really come in handy. This is explicitly apparent when I see the winners&rsquo; names are mostly from past competitions. I would need to solve more algorithmic problems to train myself to be come better at that way of thinking. Along with that process, I would also be able to improve my programming efficiency.</p>
+
+      </div></div>
+
+  
+    
+<div class="pagination">
+    <div class="pagination__title">
+        <span class="pagination__title-h">Read other posts</span>
+        <hr />
+    </div>
+    <div class="pagination__buttons">
+        
+        <span class="button previous">
+            <a href="https://blog.aaanh.com/posts/dev-goals-first-half-2022/">
+                <span class="button__icon">←</span>
+                <span class="button__text">My Dev Skill Improvement Roadmap for First Half of 2022</span>
+            </a>
+        </span>
+        
+        
+        <span class="button next">
+            <a href="https://blog.aaanh.com/posts/cloudflare-ftw/">
+                <span class="button__text">Cloudflare FTW</span>
+                <span class="button__icon">→</span>
+            </a>
+        </span>
+        
+    </div>
+</div>
+
+  
+
+  
+    
+
+  
+</article>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright">
+        <span>© 2023 Powered by <a href="http://gohugo.io">Hugo</a></span>
+    
+      <span>:: <a href="https://github.com/panr/hugo-theme-terminal" target="_blank">Theme</a> made by <a href="https://github.com/panr" target="_blank">panr</a></span>
+      </div>
+  </div>
+</footer>
+
+
+
+
+
+
+<script type="text/javascript" src="/bundle.min.js"></script>
+
+
+
+
+
+  
+</div>
+
+</body>
+</html>
