@@ -1,0 +1,20 @@
+<header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      {{ partial "logo.html" . }}
+    </div>
+    {{ if len $.Site.Menus }}
+      {{ partial "mobile-menu.html" . }}
+    {{ end }}
+    {{ if and $.Site.Params.showLanguageSelector (len $.Site.Home.AllTranslations) }}
+      {{ partial "language-menu.html" . }}
+    {{ end }}
+  </div>
+  {{ if len $.Site.Menus }}
+  {{ partial "menu.html" . }}
+  {{ end }}
+  <div class="author">
+    
+    Created by&nbsp;<a href="https://aaanh.ca">Anh Hoang Nguyen</a> <img src="https://avatars.githubusercontent.com/u/37283437?v=4" width="128px" height="128px"> |&nbsp;<a href="https://github.com/aaanh/blog">Github</a>&nbsp;|&nbsp;<a href="https://twitter.com/aaaaaaaaaanh">Twitter</a>
+  </div>
+</header>
