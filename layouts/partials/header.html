@@ -3,9 +3,9 @@
     <div class="header__logo">
       {{ partial "logo.html" . }}
     </div>
-    {{ if len $.Site.Menus }}
+    <!-- {{ if len $.Site.Menus }}
     {{ partial "mobile-menu.html" . }}
-    {{ end }}
+    {{ end }} -->
     {{ if and $.Site.Params.showLanguageSelector (len $.Site.Home.AllTranslations) }}
     {{ partial "language-menu.html" . }}
     {{ end }}
