@@ -89,21 +89,23 @@ const posts = (await getCollection("blog")).sort(
       <section>
         <ul>
           {
-            posts.map((post, idx) => (
-              <li class="group sm:m-0 sm:p-4 m-4 p-2 dark:hover:bg-neutral-800 rounded-lg duration-200 transition-all ease-in-out">
-                <a class="" href={`/blog/${post.slug}/`}>
-                  {idx == 0 ? (
-                    <span class="font-bold border-2 border-blue-500 rounded-full px-2 py-1">
-                      Latest
-                    </span>
-                  ) : null}
-                  <h4 class="title text-xl ">{post.data.title}</h4>
-                  <p class="text-md text-neutral-400">
-                    <FormattedDate date={post.data.pubDate} />
-                  </p>
-                </a>
-              </li>
-            ))
+            posts.map((post, idx) =>
+              post.data.draft ? null : (
+                <li class="group sm:m-0 sm:p-4 m-4 p-2 dark:hover:bg-neutral-800 rounded-lg duration-200 transition-all ease-in-out">
+                  <a class="" href={`/blog/${post.slug}/`}>
+                    {idx == 0 ? (
+                      <div class="font-bold border-2 border-blue-500 rounded-full px-2 py-1 inline-block mb-4">
+                        Latest
+                      </div>
+                    ) : null}
+                    <h4 class="title text-xl ">{post.data.title}</h4>
+                    <p class="text-md text-neutral-400">
+                      <FormattedDate date={post.data.pubDate} />
+                    </p>
+                  </a>
+                </li>
+              )
+            )
           }
         </ul>
       </section>

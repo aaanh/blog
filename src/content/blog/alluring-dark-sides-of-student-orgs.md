@@ -3,6 +3,7 @@ title: "Alluring Dark Sides of Student Organizations"
 description: "Strictly from my experience of being in countless of those"
 pubDate: "Dec 07 2023"
 heroImage: "/blog-heroes/dark-side-of-student-orgs.jpeg"
+draft: true
 ---
 
 > Hero image fanart of Apothecary Diaries, depicted in Kyoufuu All Back style, by nekokurage.
@@ -38,7 +39,7 @@ Depending on what the org does and wants to achieve, there are teams which speci
 
 Then, there can be other specialized teams that cover a niche. As an jovial example, a student org about guns and weapons would have a team dedicated to Materials or Targeting Systems or UAV 🤷.
 
-##
+Okay, with that out of the way, now queue our protagonist...
 
 ---
 
