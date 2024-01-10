@@ -1,0 +1,37 @@
+---
+title: Going All Out on a Gacha Simulator
+pubDate: "2024-01-08"
+tags: ["full-stack", "development", "nextjs", "react", "golang", "database", "sql", "api", "devops", "ci-cd"]
+draft: true
+description: The checkpoint for my development experience and knowledge so far at the beginning of 2024
+---
+
+## A brief history of the road so far...
+
+I first started my developer journey back in 2018 with building sites in WordPress, Wix, and a drag and drop website builder tool from GoDaddy. I built them for my relative's business in the States, some student organizations and for my now defunct and deleted blog where I wrote cringe stuff in high school.
+
+I first jump into the galore of actual web development was back in 2019 when I built my personal website experimenting with HTML/CSS/JS, banged my head against the wall dealing with DNS, and stabbed my wallet to death with AWS EC2 bills. Then in 2020, at the height of the pandemic, I came into the world of React development through a now defunct project with my friend where I struggled every day with functional components, HTTP requests, API servers, MongoDB, managing (S)CSS files, and managing Python environments. After that fiasco, I learned about Nextjs and Vercel at the end of 2020.
+
+The next stage was DevOps when I learned about CI/CD pipelines, Docker, Github Actions, and finally Ansible through Jeff Geerling's materials.
+
+I had my first taste of real development and DevOps practice during my second internship where I tried my best to update a legacy tool, manage builds and deployments on Azure DevOps. Right after which, I built a simple [GPT web chat application](https://gpt.aaanh.app) joined Nuance and Microsoft 4 months later doing API and microservice development (Nestjs, Golang, Python, etc.), application security enhancements, systems automation, and Kubernetes deployment.
+
+## The Gacha Simulator
+
+I realized after getting back from my long break in the summer of 2023 that I must continuously practice the crafts I learned in the past or else I am bound to forget how to do anything. And I was in need of the development cocaine, as if the programming load from the courses I was taking was not enough, to satiate my brain receptors.
+
+Those who know me know that I am a huge gacha game fanatic, so huge that it is life-threateningly detrimental. Hyperboles aside, the one gacha game that got me started is Fate Grand Order (FGO). Introduced to me by one of my friends who is also studying abroad back in 2018, the weirdest and most ambivalent time of my life, I depended on the game to have some grasp on reality. Although FGO wasn't the first gacha I've ever played, it surely got me hooked, line and sinker and all of that, from then on. I reveled myself in the various limited character events as the time passes until Decemeber 2023.
+
+One brisk morning back in January 2023, I came across Atlas Academy and its Discord server. At that time, I only considered it as an infinitely better alternative to the FGO Wikia, which is full of crap advertisements that it's impossible to use without an ad-blocker. Then came December. Cooped up in my apartment whenever there was not a lecture to attend, I grew tired of doing the same routine every day. Equipped with the experience and motivated by the sense of impending boring doom, I decided to write a gacha simulator.
+
+### The Idea
+
+Knowing that Atlas Academy provides a very comprehensible database for the characters, also called 'servants' -- please don't cancel me, in FGO with their respective original name in Japanese, English translation, stats, and more importantly the asset link to the in-game servant card face. I embarked on a journey to develop a simulator that would work somewhat similar to the real logic.
+
+There's also another motivating faector that I can't seem to keep my mouth shut about: I landed the ownership of the new TLD domain `reroll.ing`.
+
+### The Toolchain
+
+The rough idea is pretty much straightforward. So, it was time for me to pick my poison for what I'll be developing the application with.
+
+In my opinion, the distribution of the software/application should be pondered upon first. And the best way to distribute a piece of software where virtually anyone with an internet connection enabled device can use without setting anything up is: the WEB. By knowing what is my target platform, the first major piece of the puzzle basically assembled itself. Without a shadow of doubt, I would build it using React Nextjs via the `create-t3-app` popularized by Theo of `ping.gg`, because of my familiarity of the framework, its and Nodejs native APIs, and the dynamic routing feature. That is the frontend: TypeScript, Tailwindcss, Nodejs, Nextjs, React -- simple enough.
