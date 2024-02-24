@@ -1,7 +1,19 @@
 ---
 title: Going All Out on a Gacha Simulator
 pubDate: "2024-01-08"
-tags: ["full-stack", "development", "nextjs", "react", "golang", "database", "sql", "api", "devops", "ci-cd"]
+tags:
+  [
+    "full-stack",
+    "development",
+    "nextjs",
+    "react",
+    "golang",
+    "database",
+    "sql",
+    "api",
+    "devops",
+    "ci-cd"
+  ]
 draft: true
 description: The checkpoint for my development experience and knowledge so far at the beginning of 2024
 ---
@@ -30,8 +42,14 @@ Knowing that Atlas Academy provides a very comprehensible database for the chara
 
 There's also another motivating faector that I can't seem to keep my mouth shut about: I landed the ownership of the new TLD domain `reroll.ing`.
 
-### The Toolchain
+### The Stack
 
 The rough idea is pretty much straightforward. So, it was time for me to pick my poison for what I'll be developing the application with.
+
+#### Frontend
+
+I picked React -> Nextjs -> create-t3-app -- this is the usual suspect.
+
+React has been my _de facto_ way of building web applications for more than 5 years now and I don't think that status quo would change anytime soon. Although, I do experiment with other "bleeding edge" libraries and frameworks like SvelteKit
 
 In my opinion, the distribution of the software/application should be pondered upon first. And the best way to distribute a piece of software where virtually anyone with an internet connection enabled device can use without setting anything up is: the WEB. By knowing what is my target platform, the first major piece of the puzzle basically assembled itself. Without a shadow of doubt, I would build it using React Nextjs via the `create-t3-app` popularized by Theo of `ping.gg`, because of my familiarity of the framework, its and Nodejs native APIs, and the dynamic routing feature. That is the frontend: TypeScript, Tailwindcss, Nodejs, Nextjs, React -- simple enough.
