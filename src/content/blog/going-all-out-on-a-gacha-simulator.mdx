@@ -48,8 +48,72 @@ The rough idea is pretty much straightforward. So, it was time for me to pick my
 
 #### Frontend
 
-I picked React -> Nextjs -> create-t3-app -- this is the usual suspect.
+I picked React -> Nextjs -> create-t3-app, just the usual suspects.
 
-React has been my _de facto_ way of building web applications for more than 5 years now and I don't think that status quo would change anytime soon. Although, I do experiment with other "bleeding edge" libraries and frameworks like SvelteKit
+React has been my _de facto_ way of building web applications for more than 5 years now and I don't think that status quo would change anytime soon. To move as quickly as possible, this decision makes sense, because I know the in's and out's of React, and Next in particular, enough to dish out a working prototype in the shortest time and least effort.
 
-In my opinion, the distribution of the software/application should be pondered upon first. And the best way to distribute a piece of software where virtually anyone with an internet connection enabled device can use without setting anything up is: the WEB. By knowing what is my target platform, the first major piece of the puzzle basically assembled itself. Without a shadow of doubt, I would build it using React Nextjs via the `create-t3-app` popularized by Theo of `ping.gg`, because of my familiarity of the framework, its and Nodejs native APIs, and the dynamic routing feature. That is the frontend: TypeScript, Tailwindcss, Nodejs, Nextjs, React -- simple enough.
+Although, I want to mention that I do experiment with other "bleeding edge" libraries and frameworks like Vuejs, SvelteKit, and Astro (which this blog is built on).
+
+Finally, The Vercel integration for deploying the React app is a welcoming familiar workflow as well. The CDN and caching are handled on both Vercel's side and Cloudflare on the network layer, so performance, availability and scaling shouldn't be a huge issue. Plus, it's free!
+
+#### Backend
+
+In terms of functional requirements, I just need a server that:
+
+- Performs the randomized gacha roll business logic:
+  - Single Roll
+  - Multi Roll
+
+> The execution of roll(s) MUST be handled completely by the backend service, it SHOULD construct a response body containing the rolls for the frontend client to simply render and display to the user.
+
+Example of a JSON response for a single roll
+
+```json
+{
+  "roll": {
+    "collectionNo": 36,
+    "originalName": "ヴォルフガング・アマデウス・モーツァルト",
+    "name": "Wolfgang Amadeus Mozart",
+    "rarity": 1,
+    "className": "caster",
+    "atkMax": 5195,
+    "hpMax": 7129,
+    "attribute": "star",
+    "face": "https://static.atlasacademy.io/JP/Faces/f_5015000.png",
+    "face_path": "https://api.reroll.ing/assets/36.png"
+  }
+}
+```
+
+Which leads us to the lower layer of building servant information
+
+- Provides servant information queried from a database.
+  - Provides single servant information queried by ID (collection number).
+- (Added later) Provides the total number of servants.
+
+Example of a JSON response query by ID
+
+```json
+{
+  "servant": {
+    "collectionNo": 1,
+    "originalName": "マシュ・キリエライト",
+    "name": "Mash Kyrielight",
+    "rarity": 3,
+    "className": "shielder",
+    "atkMax": 6791,
+    "hpMax": 10302,
+    "attribute": "earth",
+    "face": "https://static.atlasacademy.io/JP/Faces/f_8001000.png",
+    "face_path": "https://api.reroll.ing/assets/1.png"
+  }
+}
+```
+
+And finally,
+
+- Provides simple health check endpoint for server status
+
+I have been ~trying to learn~ learning Golang for the past few months. While I could definitely build a Nodejs-based backend server pretty effortlessly, I want to put my Go skills to the test, in production. Therefore, I decided to go with Go.
+
+A simple search on the internet says that I should use Go Gin as the simple API server.
