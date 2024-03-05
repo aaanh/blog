@@ -1,0 +1,37 @@
+---
+title: Full-Stack + DevOps + InfraOps of a Gacha Simulator - Part 1 of 2
+pubDate: "2024-03-05"
+tags:
+  [
+    "full-stack",
+    "development",
+    "nextjs",
+    "react",
+    "golang",
+    "database",
+    "sql",
+    "api",
+    "devops",
+    "ci-cd"
+  ]
+draft: true
+description: Part 2 of how I built a gacha simulator.
+---
+
+# Quick recap
+
+# The Stack
+
+## Database
+
+When you talk about database, ain't no way you can skip the data itself. FGO servant data is very complex when you have to take into account what is the values for not only HP and Attack for each servant's level, but also their skills, append skills, and a host of other attributes. What enriches the game experience can be the pain in the ass implementation and integration process for the developers.
+
+For my use case, if we discuss from the perspective of a SQL table, I would only need the bare minimum columns displayed to the users of my simulator for first release and then I can incorporate more later on.
+
+The crux of any gacha game is the rare PNG's and JPG's you get to have after spending a copious amount of `$$$` into basically glorified slot machines. So, I somehow need to store these PNG'd, which are called card faces, in my database. That is when I got the idea of serving them statically as files from a URI. More on the how later in the [Networking](#networking) section. In conclusion, the images are accessible through a URI, like you would access an AWS S3 bucket object. The URI looks something like `https://api.my.domain.com/servants/<collection_number>`.
+
+Once I got that idea nailed down, building the ORM for each servant was straightforward.
+
+Now, I think about the data pipeline. The app needs to retrieve the servant data JSON file from the Atlas API for the latest changes. However, I don't want to abuse the API, because compute resource is expensive, data egress is homeless. To make it sustainable for me and the Atlas API folks, I realize that the servant database needs not to be updated regularly. In fact, probably only updated in the span of 1-2 months according to FGO official release cycle. Then, the app csn get away with having a static JSON file as the database for each version update.
+
+However, I believe, with no evidence to back up my claim, that accessing the JSON data and transforming them into objects would be most inefficient.

@@ -7,12 +7,15 @@ import { SITE_TITLE } from "../consts";
   class="sm:m-8 py-4 px-8 shadow-md dark:bg-white/10 backdrop-blur-xl rounded-lg"
 >
   <nav class="flex items-center justify-between">
-    <h2 class="text-lg hover:text-blue-500">
-      <a
-        class="py-8 px-4 border-b-2 border-transparent active:border-black"
-        href="/">{SITE_TITLE}</a
-      >
-    </h2>
+    <div class="flex items-center">
+      <img class="h-12 w-12" src="/logo-color-variant-small.png" />
+      <h2 class="text-lg hover:text-blue-500">
+        <a
+          class="py-8 px-4 border-b-2 border-transparent active:border-black"
+          href="/">{SITE_TITLE}</a
+        >
+      </h2>
+    </div>
     <div class="internal-links">
       <HeaderLink href="/about">About</HeaderLink>
     </div>

@@ -1,6 +1,6 @@
 ---
-title: Going All Out on a Gacha Simulator
-pubDate: "2024-01-08"
+title: Full-Stack + DevOps + InfraOps of a Gacha Simulator - Part 1 of ?
+pubDate: "2024-03-05"
 tags:
   [
     "full-stack",
@@ -14,11 +14,12 @@ tags:
     "devops",
     "ci-cd"
   ]
-draft: true
-description: The checkpoint for my development experience and knowledge so far at the beginning of 2024
+draft: false
+description: The checkpoint for my development experience and knowledge so far at the beginning of 2024. In this part, I talk about my history, the idea, the frontend and backend stack. For the next part, it will be the data schema and database design, the DevOps process, and infrastructures.
+heroImage: "/blog-content/build-a-gacha-simulator-part-1.jpeg"
 ---
 
-## A brief history of the road so far...
+# A brief history of the road so far...
 
 I first started my developer journey back in 2018 with building sites in WordPress, Wix, and a drag and drop website builder tool from GoDaddy. I built them for my relative's business in the States, some student organizations and for my now defunct and deleted blog where I wrote cringe stuff in high school.
 
@@ -28,7 +29,7 @@ The next stage was DevOps when I learned about CI/CD pipelines, Docker, Github A
 
 I had my first taste of real development and DevOps practice during my second internship where I tried my best to update a legacy tool, manage builds and deployments on Azure DevOps. Right after which, I built a simple [GPT web chat application](https://gpt.aaanh.app) joined Nuance and Microsoft 4 months later doing API and microservice development (Nestjs, Golang, Python, etc.), application security enhancements, systems automation, and Kubernetes deployment.
 
-## The Gacha Simulator
+# The Gacha Simulator
 
 I realized after getting back from my long break in the summer of 2023 that I must continuously practice the crafts I learned in the past or else I am bound to forget how to do anything. And I was in need of the development cocaine, as if the programming load from the courses I was taking was not enough, to satiate my brain receptors.
 
@@ -36,17 +37,17 @@ Those who know me know that I am a huge gacha game fanatic, so huge that it is l
 
 One brisk morning back in January 2023, I came across Atlas Academy and its Discord server. At that time, I only considered it as an infinitely better alternative to the FGO Wikia, which is full of crap advertisements that it's impossible to use without an ad-blocker. Then came December. Cooped up in my apartment whenever there was not a lecture to attend, I grew tired of doing the same routine every day. Equipped with the experience and motivated by the sense of impending boring doom, I decided to write a gacha simulator.
 
-### The Idea
+# The Idea
 
 Knowing that Atlas Academy provides a very comprehensible database for the characters, also called 'servants' -- please don't cancel me, in FGO with their respective original name in Japanese, English translation, stats, and more importantly the asset link to the in-game servant card face. I embarked on a journey to develop a simulator that would work somewhat similar to the real logic.
 
 There's also another motivating faector that I can't seem to keep my mouth shut about: I landed the ownership of the new TLD domain `reroll.ing`.
 
-### The Stack
+# The Stack
 
 The rough idea is pretty much straightforward. So, it was time for me to pick my poison for what I'll be developing the application with.
 
-#### Frontend
+## Frontend
 
 I picked React -> Nextjs -> create-t3-app, just the usual suspects.
 
@@ -56,7 +57,7 @@ Although, I want to mention that I do experiment with other "bleeding edge" libr
 
 Finally, The Vercel integration for deploying the React app is a welcoming familiar workflow as well. The CDN and caching are handled on both Vercel's side and Cloudflare on the network layer, so performance, availability and scaling shouldn't be a huge issue. Plus, it's free!
 
-#### Backend
+## Backend
 
 In terms of functional requirements, I just need a server that:
 
@@ -114,6 +115,16 @@ And finally,
 
 - Provides simple health check endpoint for server status
 
-I have been ~trying to learn~ learning Golang for the past few months. While I could definitely build a Nodejs-based backend server pretty effortlessly, I want to put my Go skills to the test, in production. Therefore, I decided to go with Go.
+I have been ~trying to learn~ learning Golang for the past few months, plus several more months in the previous year. Most of my contact with Golang was through doing the [Advent of Code](https://adventofcode.com) challenges. While I could definitely build a Nodejs-based backend server pretty effortlessly, I want to put my Go skills to the test, in production. Therefore, I decided to go with Go.
 
-A simple search on the internet says that I should use Go Gin as the simple API server.
+A simple search on the internet says that I should use Go Gin as the simple API server. It is quite ubiquitously used and has a lot of community support. Also, at first glance the provided methods and syntaxes look easily maintainable, resulting in shorter time to "market".
+
+I followed the tutorial on [how to build a movie database tutorial](https://go.dev/doc/tutorial/web-service-gin) on the Golang docs site and simply adapted and expanded on the idea from there. 110% would recommend checking that out.
+
+# End of part 1
+
+Thanks for sticking out this far. It is a lengthy post and post series, but I hope to document all the technical details and considerations I have made for this precious project of mine and hope that these rambles would help you with the development of your (pet) projects as well.
+
+That's it for this part. If I continue, I might not be able to stop and the content might never see the light of day 🥹 With the next part, I will discuss the data schema, database design, how I set up the hosting and networking.
+
+See you later.
