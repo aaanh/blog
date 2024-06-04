@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+code {
+  word-wrap: break-word;
+  background: rgba(50,200,150,0.8);
+  padding: 2pt;
+  border-radius: 4pt;
+  color: black !important;
+}
