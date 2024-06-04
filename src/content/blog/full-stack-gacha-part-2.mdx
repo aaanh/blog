@@ -1,26 +1,32 @@
 ---
-title: Full-Stack + DevOps + InfraOps of a Gacha Simulator - Part 1 of 2
-pubDate: "2024-03-05"
+title: Full-Stack + DevOps + InfraOps of a Gacha Simulator - Part 2 of 2
+pubDate: '2024-06-03'
 tags:
   [
-    "full-stack",
-    "development",
-    "nextjs",
-    "react",
-    "golang",
-    "database",
-    "sql",
-    "api",
-    "devops",
-    "ci-cd"
+    'full-stack',
+    'development',
+    'nextjs',
+    'react',
+    'golang',
+    'database',
+    'sql',
+    'api',
+    'devops',
+    'ci-cd'
   ]
-draft: true
 description: Part 2 of how I built a gacha simulator.
+heroImage: '/blog-content/build-a-gacha-simulator-part-2.png'
 ---
+
+Try out the app at: https://reroll.ing
 
 # Quick recap
 
-# The Stack
+In the [previous part](/blog/full-stack-gacha-part-1), I went over the motivations for building a gacha simulator fully equipped with a frontend and backend, as well as the frontend and backend stack.
+
+In this part, we shall round up the stack with the last component: the database. Next on the menu, we'll tackle the operational side of things: how I deploy the application continuously.
+
+# The Stack (continue)
 
 ## Database
 
@@ -32,6 +38,159 @@ The crux of any gacha game is the rare PNG's and JPG's you get to have after spe
 
 Once I got that idea nailed down, building the ORM for each servant was straightforward.
 
-Now, I think about the data pipeline. The app needs to retrieve the servant data JSON file from the Atlas API for the latest changes. However, I don't want to abuse the API, because compute resource is expensive, data egress is homeless. To make it sustainable for me and the Atlas API folks, I realize that the servant database needs not to be updated regularly. In fact, probably only updated in the span of 1-2 months according to FGO official release cycle. Then, the app csn get away with having a static JSON file as the database for each version update.
+Now, I think about the data pipeline. The app needs to retrieve the servant data JSON file from the Atlas API for the latest changes. However, I don't want to abuse the API, because compute resource is expensive, data egress is homeless. To make it sustainable for me and the Atlas API folks, I realize that the servant database needs not to be updated regularly. In fact, probably only updated in the span of 1-2 months according to FGO official release cycle. Then, the app can get away with having a static JSON file as the database for each version update.
 
-However, I believe, with no evidence to back up my claim, that accessing the JSON data and transforming them into objects would be most inefficient.
+However, I believe, with no evidence to back up my claim, that accessing the JSON data and transforming them into objects would be most inefficient. So, I opted for the easiest to manage SQL database, SQLite. It has absolutely no security, but there would be nothing sensitive stored in the database anyway. SQLite can be simply be saved as a binary file and in reality, there'd just be READ operations without any singular nor parallel CUD operation, so the database won't have any performance bottleneck with regards to workload.
+
+Now, nota bene that having a SQLite database is one thing, interacting with it is a different story. I totally do not want to manually raw SQL commands every time I need to build the database and tables. That is why I chose Python as the medium for executing SQL commands. However, I don't totally escape the raw SQL stuff. I still wrote down the only "line" I need to initialize it:
+
+```sql
+CREATE TABLE servants(
+  collectionNo INT PRIMARY KEY,
+  sv_original_name VARCHAR(128) NOT NULL,
+  sv_name VARCHAR(128) NOT NULL,
+  rarity INT NOT NULL,
+  class_name VARCHAR(50) NOT NULL,
+  atk_max INT NOT NULL,
+  hp_max INT NOT NULL,
+  attribute VARCHAR(50) NOT NULL,
+  face_url VARCHAR(200) NOT NULL,
+  face_path VARCHAR(200) NOT NULL
+);
+```
+
+This line is run every time the database is generated. To improve the "developer experience", I wrote this Python function:
+
+```py
+def init_sql():
+    if os.stat("./sv_db.db").st_size == 0:
+        with open("./init.sql", "r") as db_init:
+            commands = db_init.read().split(';')
+
+            for cmd in commands:
+                try:
+                    cur.execute(cmd)
+                except OperationalError as msg:
+                    print("Command skipped: ", msg)
+```
+
+After it's initialized with an empty table, it's time to populate the table with servants data. First, we download the JSON servant data file from Atlas API.
+
+```py
+def fetch_new_data():
+    url = "https://api.atlasacademy.io/export/JP/basic_servant_lang_en.json"
+    r = requests.get(url)
+    json_data = r.json()
+    return json_data
+```
+
+Second, we deserialize the JSON data into an iterable data type in Python and go over that to add rows into the SQLite database.
+
+```py
+# Do this...
+def load_json():
+    with open("./fgo-servants-basic.json", "r", encoding="utf-8") as sv_db:
+        data = json.load(sv_db)
+        servants = data
+
+    return servants
+
+# ...then this
+def update_db(json_data):
+    """
+    Update the SQLite database with the data from the json file
+    """
+
+    current_path = os.getcwd()
+    for i in range(len(json_data)):
+        try:
+            face_path = f"https://api.reroll.ing/assets/{json_data[i]['collectionNo']}.png"
+            cur.execute("INSERT INTO servants (collectionNo, sv_original_name, sv_name, rarity, class_name, atk_max, hp_max, attribute, face_url, face_path) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+                        (json_data[i]['collectionNo'], json_data[i]['originalName'], json_data[i]['name'], json_data[i]['rarity'], json_data[i]['className'], json_data[i]['atkMax'], json_data[i]['hpMax'], json_data[i]['attribute'], json_data[i]['face'], face_path))
+        except sqlite3.IntegrityError:
+            print(
+                f"Servant already exists in database, skipping: {json_data[i]['collectionNo']} - \"{json_data[i]['name']}\"")
+
+        con.commit()
+```
+
+Finally, we need to get the servant faces. Now, to minimize the load on the Atlas API, we would only download the faces once every blue moon or only download the new ones when game data is officially updated upstream. Since it is a relatively carefree operation, I opt to download the new servant faces manually every update and create a new release with the `sv_faces.zip` as its artifact.
+
+```py
+# For a full fresh download or new servants
+def fetch_and_store_sv_faces(sql_data):
+    """
+    Fetch and store all servant faces in the local database from the Atlas Academy API
+    """
+
+    if os.path.exists("./assets") is not True:
+        os.mkdir("./assets")
+
+    start = perf_counter()
+
+    for row in sql_data:
+        url = f"{row[8]}"
+        print(url)
+        if os.path.exists(f"./assets/{row[0]}.png"):
+            print(f"Face for ({row[0]}) {row[1]} already exists, skipping")
+            continue
+        else:
+            r = requests.get(url)
+            with open(f"./assets/{row[0]}.png", "wb") as f:
+                f.write(r.content)
+            print(f"Stored face for ({row[0]}) {row[1]} - {len(r.content)}")
+
+    end = perf_counter()
+
+    print(f"Downloaded {len(sql_data)} faces in {end - start} seconds")
+
+# For downloading the Github release artifact
+def download_sv_faces():
+    """
+    Download sv_faces.zip from the latest release on GitHub
+    """
+
+    if os.path.exists("./sv_faces.zip"):
+        os.remove("./sv_faces.zip")
+
+    asset_url = requests.get(
+        "https://api.github.com/repos/aaanh/reroll.ing/releases").json()[0]['assets'][0]["browser_download_url"]
+    # print(asset_url)
+    r = requests.get(asset_url)
+    with open("./sv_faces.zip", "wb") as f:
+        f.write(r.content)
+    print(f"Downloaded sv_faces.zip, size: {len(r.content)}")
+
+    if os.path.exists("./assets"):
+        print("assets folder already exists, skipping unzip")
+    else:
+        # unzip downloaded file
+        os.system("unzip ./sv_faces.zip -d .")
+
+# For zipping and manually uploading to Github release
+def zip_sv_faces():
+    """
+    Zip all servant faces in the local assets folder into sv_faces.zip
+    """
+
+    if os.name == "nt":
+        # Windows
+        os.system(
+            "powershell Compress-Archive -Force -Path ./assets -DestinationPath ./sv_faces.zip")
+
+    if os.name == "posix":
+        # Linux
+        os.system("zip -r ./sv_faces.zip ./assets")
+```
+
+# Deployment
+
+This is my favorite section but still an aspect that gives me quite the headache to streamline.
+
+Here is an Excalidraw diagram as tl;dr.
+
+![CI-CD Pipeline](/blog-content/rerolling-devops.png)
+
+# End of series
+
+Thanks for sticking out this far 🫡
