@@ -1,19 +1,19 @@
 ---
-title: "Google Cloud Platform Bonanza - Cloud Run"
-pubDate: "2022-07-02T00:30:00"
+title: 'Google Cloud Platform Bonanza - Cloud Run'
+pubDate: '2022-07-02T00:30:00'
 tags:
   [
-    "serverless",
-    "gcp",
-    "cloud-run",
-    "firebase",
-    "devops",
-    "docker",
-    "container",
-    "networking"
+    'serverless',
+    'gcp',
+    'cloud-run',
+    'firebase',
+    'devops',
+    'docker',
+    'container',
+    'networking'
   ]
 draft: false
-description: "Why do you have to be this way?"
+description: 'Why do you have to be this way?'
 ---
 
 > Curse-loaded rant alert.
@@ -22,7 +22,7 @@ description: "Why do you have to be this way?"
 
 [Google Cloud Platform](https://cloud.google.com) is Google's the direct competitor to [Microsoft Azure](azure.com) and [Amazon AWS](https://aws.amazon.com). Among the services GCP offers is the Cloud Run API. Cloud Run hosts containerized applications, APIs, and microservices while being jam-packed with features like security, access control, port forwarding, loggings, and etc.
 
-<img src="/static/images/devops-gcp-cloudrun.png"></img>
+<img src="/blog-content/devops-gcp-cloudrun.png"></img>
 _Fig 1. The dashboard of a deployed Cloud Run project_
 
 The Cloud Run service and platform are able to differentiate themselves from the others by offering a relatively modern and clean console which helps a lot with navigating through the options and functionalities. Compared to GCP, AWS and Azure seem clunky and the UI flow does not offer a clear path for a developer to deploy their projects. Most importantly, when enabling these services, AWS and Azure have complicated billing account assignment that just throws the user off track.

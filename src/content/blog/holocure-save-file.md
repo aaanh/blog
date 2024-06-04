@@ -1,13 +1,13 @@
 ---
-title: "Holocure Save File Restore"
-pubDate: "2022-07-03T04:30:00"
-tags: ["game", "hacking", "holocure"]
+title: 'Holocure Save File Restore'
+pubDate: '2022-07-03T04:30:00'
+tags: ['game', 'hacking', 'holocure']
 draft: false
-description: "Had insomnia last night so I stayed up until dawn playing Holocure"
-image: "/static/images/tech-holocure-save-file.png"
+description: 'Had insomnia last night so I stayed up until dawn playing Holocure'
+image: '/blog-content/tech-holocure-save-file.png'
 ---
 
-<img src="/static/images/tech-holocure-save-file.png"></img>
+<img src="/blog-content/tech-holocure-save-file.png"></img>
 
 # Background
 
@@ -50,7 +50,7 @@ The game target platform is `win32`.
   1. Copy all the content and paste it into [a decoder like base64](https://www.base64decode.org/)
      - Or use `base64` CLI in WSL `base64 -d save.dat >> save.decoded.`
   1. Sample decoded file:
-     - <img src="/static/images/tech-holocure-example.png"></img>
+     - <img src="/blog-content/tech-holocure-example.png"></img>
   1. You are probably seeing a string like this:
      ```json
      y4ݴouy{F{sm}^svi8s6}{Vk{ "food": 1.0, "specUnlock": 1.0, "haste": 2.0, "holoCoins": -136.0, "unlockedItems": [ "BodyPillow", "FullMeal", "PikiPikiPiman", "SuccubusHorn", "Headphones", "UberSheep"........

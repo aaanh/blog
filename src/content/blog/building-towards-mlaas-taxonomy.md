@@ -1,9 +1,9 @@
 ---
-title: "Building Towards a Taxonomy of MLaaS"
-pubDate: "2022-07-04"
-tags: ["mlaas", "mlops", "exploratory", "sca", "soa", "research"]
+title: 'Building Towards a Taxonomy of MLaaS'
+pubDate: '2022-07-04'
+tags: ['mlaas', 'mlops', 'exploratory', 'sca', 'soa', 'research']
 draft: false
-description: "There is a scarcity in terms of papers 😣 so I have to get creative 💡"
+description: 'There is a scarcity in terms of papers 😣 so I have to get creative 💡'
 ---
 
 > ⚠ Under Construction. Please check back later or help yourself with my previous publications 🤗.
@@ -45,7 +45,7 @@ Now that we lay the foundation for MLaaS roughly can be. One might pose the ques
 
 ## Putting the Blocks Together
 
-<img src="/static/images/ml-2-taxonomy-1.png"></img>
+<img src="/blog-content/ml-2-taxonomy-1.png"></img>
 
 Something something
 

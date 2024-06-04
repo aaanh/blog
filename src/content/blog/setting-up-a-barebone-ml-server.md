@@ -1,10 +1,10 @@
 ---
-title: "Setting Up a Barebone Dedicated ML Server"
-pubDate: "2022-07-23"
-tags: ["mlops", "exploratory", "research", "linux", "hardware", "tinkering"]
+title: 'Setting Up a Barebone Dedicated ML Server'
+pubDate: '2022-07-23'
+tags: ['mlops', 'exploratory', 'research', 'linux', 'hardware', 'tinkering']
 draft: false
-description: "I sure hope that I will make-even with this investment 💸"
-images: ["/static/images/ml-3-server.png"]
+description: 'I sure hope that I will make-even with this investment 💸'
+images: ['/blog-content/ml-3-server.png']
 ---
 
 # The Purchase
@@ -86,7 +86,7 @@ wget https://repo.anaconda.com/archive/Anaconda3-2022.05-Linux-x86_64.sh && bash
 
 After that, I created a new environment, installed Jupyter Notebook and dependencies. And finally, I ran the first ever training (pictured below). I made sure to monitor the GPU usage through `nvidia-smi` to verify if it was utilizing the GPU, not the CPU.
 
-<img src="/static/images/ml-3-server.png"></img>
+<img src="/blog-content/ml-3-server.png"></img>
 
 # Afterwords
 

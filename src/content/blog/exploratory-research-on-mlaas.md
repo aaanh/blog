@@ -1,9 +1,9 @@
 ---
-title: "Initiate Exploratory Research on ML/DL/AIaaS"
-pubDate: "2022-06-30"
-tags: ["mlaas", "mlops", "exploratory", "research"]
+title: 'Initiate Exploratory Research on ML/DL/AIaaS'
+pubDate: '2022-06-30'
+tags: ['mlaas', 'mlops', 'exploratory', 'research']
 draft: false
-description: "There are so many of them out there 😱"
+description: 'There are so many of them out there 😱'
 ---
 
 > This post is adapted on my internal report #1 and #2, as part of my research group efforts in studying and developing machine learning processes, frameworks, and knowledge base. In addition to the adaptation of the report, I add further context for general viewership comprehension.
@@ -53,7 +53,7 @@ $known\_ data \rightarrow ML\ system \rightarrow predictive\_ data $
 
 These algorithms perform pattern recognition. For example, in the case of a linearly distributed 2D dataset, the algorithm that fits the curve is linear regression (like this image with random values below).
 
-<img src="/static/images/ml-1-linear-regression.png"></img>
+<img src="/blog-content/ml-1-linear-regression.png"></img>
 
 #### Machine Learning Operations
 
