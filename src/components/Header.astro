@@ -1,12 +1,12 @@
 ---
-import HeaderLink from "./HeaderLink.astro";
-import { SITE_TITLE } from "../consts";
+import HeaderLink from './HeaderLink.astro';
+import { SITE_TITLE } from '../consts';
 ---
 
-<header
-  class="sm:m-8 py-4 px-8 shadow-md dark:bg-white/10 backdrop-blur-xl rounded-lg"
->
-  <nav class="flex items-center justify-between">
+<header class="fixed top-4 px-4 flex justify-center w-full">
+  <nav
+    class="flex items-center justify-between p-4 shadow-md dark:bg-white/10 backdrop-blur-xl rounded-lg w-[95vw]"
+  >
     <div class="flex items-center">
       <img class="h-12 w-12" src="/logo-color-variant-small.png" />
       <h2 class="text-lg hover:text-blue-500">

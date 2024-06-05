@@ -1,12 +1,12 @@
 ---
-import BaseHead from "../components/BaseHead.astro";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
-import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
-import FormattedDate from "../components/FormattedDate.astro";
-import { getCollection } from "astro:content";
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import FormattedDate from '../components/FormattedDate.astro';
+import { getCollection } from 'astro:content';
 
-const posts = (await getCollection("blog")).sort(
+const posts = (await getCollection('blog')).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 ---
@@ -85,7 +85,7 @@ const posts = (await getCollection("blog")).sort(
   </head>
   <body class="dark:bg-neutral-950 dark:text-neutral-200">
     <Header />
-    <main class="p-8 flex justify-center">
+    <main class="p-8 flex justify-center mt-24">
       <section>
         <ul>
           {
